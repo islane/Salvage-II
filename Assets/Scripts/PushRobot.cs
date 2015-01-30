@@ -6,24 +6,17 @@ public class PushRobot : Robot {
 	GameObject movableObj;
 	float distance = 10.0f;
 	Transform thingToPull; 
+
 	// Use this for initialization
-	void Start () {
+	protected override void Start () {
+		base.Start();
 		player = GameObject.FindWithTag("RobotPush");
 		movableObj = GameObject.FindGameObjectWithTag("MovableObj");
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		if (Input.GetKey (KeyCode.A)) {
-				rigidBody2d.AddForce (new Vector2 (-movement, 0.0f));
-		}
-		if (Input.GetKey (KeyCode.D)) {
-				rigidBody2d.AddForce (new Vector2 (movement, 0.0f));
-		}
-		if (Input.GetKeyDown (KeyCode.Space)) {
-				rigidBody2d.AddForce (new Vector2 (0.0f, jump));
-				//Debug.Log ()
-		}
+	protected override void Update () {
+		base.Update ();
 
 //		if (Input.GetKeyDown (KeyCode.E)) {
 //			// here is the once grabbing now climbing stuff

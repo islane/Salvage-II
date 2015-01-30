@@ -3,57 +3,40 @@ using System.Collections;
 
 public class Robot : MonoBehaviour {
 	
-	public Rigidbody2D rigidBody2d;
-	
+
+	public Global global;
 	public DrainBar drainBar;
 	
-	public float movement = 10.0f;
+	public float movement;
+	public float maxSpeed;
 	public float jump;
-	//public int batteryHealth = 100;
+
 	public bool activated = false;
-	//[System.NonSerialized]
 	public bool current = false;
-	bool grounded = false;
-	public GameObject groundCheck;
-	public Global global;
 	public int batteryDrainSpeed = 15;
-	int batteryDrain;
-	
+
+	protected Rigidbody2D rigidbody2D;
+	protected Transform groundCheck;
+	protected bool grounded = false;
+	protected int batteryDrain;
+
 	// Use this for initialization
-//	public void SetBatteryHealth(int health){
-//		batteryHealth = health;
-//	}
-	
-	
-	
-	void Start () 
+	protected virtual void Start () 
 	{
-		groundCheck = transform.FindChild ("GroundCheck").gameObject;
+		rigidbody2D = gameObject.GetComponent<Rigidbody2D>();
+		groundCheck = transform.FindChild ("GroundCheck").gameObject.transform;
 	}
 	
 	// Update is called once per frame
-	void Update () 
+	protected virtual void Update () 
 	{
-		GetInput ();
-		
-	}
-	
-	virtual public void GetInput()
-	{
-		grounded = Physics2D.Linecast(transform.position, groundCheck.transform.position);
-		//Debug.Log (grounded);
-		
 		if(current)
 		{
-			if (Input.GetKey(KeyCode.A))
-			{
-				MoveRight (movement);
-			}
-			if (Input.GetKey(KeyCode.D))
-			{
-				MoveLeft (movement);
-			}
-			if (Input.GetKeyDown(KeyCode.Space))
+			grounded = Physics2D.Linecast(transform.position , groundCheck.position , 1 << LayerMask.NameToLayer("Floor"));
+			
+			Move ();
+			
+			if (Input.GetButtonDown("Jump") && grounded)
 			{
 				Jump(jump);
 			}
@@ -63,33 +46,38 @@ public class Robot : MonoBehaviour {
 			}
 			
 		}
-	}
-	
-	virtual public void MoveRight(float move)
-	{
-		rigidBody2d.AddForce(new Vector2(-movement, 0.0f));
-		Vector2 scale = transform.localScale;
-		scale.x = -1;
-		transform.localScale = scale;
-		
-		Drain();
 		
 	}
 	
-	virtual public void MoveLeft(float move)
+	virtual public void Move()
 	{
-		rigidBody2d.AddForce(new Vector2(movement, 0.0f));
-		
-		Vector2 scale = transform.localScale;
-		scale.x = 1;
-		transform.localScale = scale;
-		
-		Drain();
+		float axis =  Input.GetAxis("Horizontal");
 
+		//Add force
+		if(axis != 0)
+			rigidbody2D.AddForce(new Vector2(movement * axis, 0.0f));
+
+		//Clamp at max speed
+		Vector2 v = rigidbody2D.velocity;
+		v.x = Mathf.Clamp(v.x, -maxSpeed, maxSpeed);
+		rigidbody2D.velocity = v;
+
+		//rotate sprite to face direction
+		Vector2 scale = transform.localScale;
+		if (axis > 0)
+			scale.x = 1;
+		if (axis < 0)
+			scale.x = -1;
+		transform.localScale = scale;
+
+		//Drain battery;
+		Drain();
+		
 	}
+
 	virtual public void Jump(float jump)
 	{
-		rigidBody2d.AddForce(new Vector2(0.0f, jump));
+		rigidbody2D.AddForce(new Vector2(0.0f, jump));
 		audio.Play ();
 
 		Drain();

@@ -2,14 +2,15 @@
 using System.Collections;
 
 public class DoubleJumpRobot : Robot{
+
 	// Use this for initialization
 	void Start () {
-
+		base.Start ();
 	}
 	
-	// Update is0 called once per frame
+	// Update is called once per frame
 	void Update () {
-		GetInput ();
+		base.Update ();
 	}
 }
 
