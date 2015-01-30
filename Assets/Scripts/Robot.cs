@@ -17,6 +17,7 @@ public class Robot : MonoBehaviour {
 
 	protected Rigidbody2D rigidbody2D;
 	protected Transform groundCheck;
+	protected Animator animator;
 	protected bool grounded = false;
 	protected int batteryDrain;
 
@@ -24,7 +25,9 @@ public class Robot : MonoBehaviour {
 	protected virtual void Start () 
 	{
 		rigidbody2D = gameObject.GetComponent<Rigidbody2D>();
+		animator = gameObject.GetComponent<Animator>();
 		groundCheck = transform.FindChild ("GroundCheck").gameObject.transform;
+
 	}
 	
 	// Update is called once per frame
@@ -55,12 +58,17 @@ public class Robot : MonoBehaviour {
 
 		//Add force
 		if(axis != 0)
+		{
 			rigidbody2D.AddForce(new Vector2(movement * axis, 0.0f));
+		}
 
 		//Clamp at max speed
 		Vector2 v = rigidbody2D.velocity;
 		v.x = Mathf.Clamp(v.x, -maxSpeed, maxSpeed);
 		rigidbody2D.velocity = v;
+
+		//Set animation based on the velosity
+		animator.SetFloat ("Speed", rigidbody2D.velocity.magnitude / maxSpeed);
 
 		//rotate sprite to face direction
 		Vector2 scale = transform.localScale;
