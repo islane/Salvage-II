@@ -14,7 +14,6 @@ public class Robot : Entity {
 	public bool current = false;
 	public int batteryDrainSpeed = 15;
 
-	protected Rigidbody2D rigidbody2D;
 	protected Transform groundCheck;
 	protected Animator animator;
 	protected bool grounded = false;
@@ -23,7 +22,6 @@ public class Robot : Entity {
 	// Use this for initialization
 	protected virtual void Start () 
 	{
-		rigidbody2D = gameObject.GetComponent<Rigidbody2D>();
 		animator = gameObject.GetComponent<Animator>();
 		groundCheck = transform.FindChild ("GroundCheck").gameObject.transform;
 

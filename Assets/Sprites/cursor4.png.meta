@@ -1,8 +1,7 @@
 fileFormatVersion: 2
-guid: 559870df2bd30d842b09bce5f7b5066f
+guid: 0946de014ae81cb4f9296dee0b783208
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: cursor2
+  fileIDToRecycleName: {}
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -22,10 +21,10 @@ TextureImporter:
   grayScaleToAlpha: 0
   generateCubemap: 0
   seamlessCubemap: 0
-  textureFormat: -2
+  textureFormat: -1
   maxTextureSize: 32
   textureSettings:
-    filterMode: 0
+    filterMode: -1
     aniso: 1
     mipBias: -1
     wrapMode: 1

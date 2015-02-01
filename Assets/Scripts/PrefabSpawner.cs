@@ -5,7 +5,7 @@ public class PrefabSpawner : MonoBehaviour {
 
 	public GameObject prefabToSpawn;
 	public float intervalInSeconds;
-	public bool active = true;
+	public bool isActive = true;
 
 	void Start()
 	{
@@ -18,7 +18,7 @@ public class PrefabSpawner : MonoBehaviour {
 
 	IEnumerator Spawn()
 	{
-		while(active)
+		while(isActive)
 		{
 			GameObject p = Instantiate(Resources.Load(prefabToSpawn.name, typeof(GameObject))) as GameObject;
 			p.transform.position = transform.position;
