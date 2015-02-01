@@ -28,9 +28,10 @@ GameObject:
   - 50: {fileID: 5094488}
   - 61: {fileID: 6194488}
   - 82: {fileID: 8295486}
+  - 95: {fileID: 9542778}
   m_Layer: 0
-  m_Name: JumpBot
-  m_TagString: Untagged
+  m_Name: RobotJump
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -66,7 +67,7 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 194488}
-  m_Mass: 1
+  m_Mass: .800000012
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 1
@@ -144,6 +145,21 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!95 &9542778
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 194488}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4594b04278d346345b95640eb4ce832b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11494488
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -155,15 +171,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61c75734df1e20040974b4eee46e1c21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidBody2d: {fileID: 5094488}
   drainBar: {fileID: 0}
   movement: 5
-  jump: 530
+  maxSpeed: 5
+  jump: 420
   activated: 0
   current: 0
-  groundCheck: {fileID: 100000}
-  global: {fileID: 0}
-  batteryDrainSpeed: 15
+  batteryDrainSpeed: 50
 --- !u!212 &21294488
 SpriteRenderer:
   m_ObjectHideFlags: 1

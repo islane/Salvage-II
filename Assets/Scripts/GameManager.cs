@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Global : MonoBehaviour {
+public class GameManager : MonoBehaviour {
 
 	public Robot currentRobot;
 	public Robot robotSmall;
@@ -29,7 +29,6 @@ public class Global : MonoBehaviour {
 		}
 		if(Input.GetKeyDown (KeyCode.Alpha2))
 		{
-			Debug.Log (robotJump.activated);
 			if(robotJump.activated)
 			{
 				currentRobot.current = false;

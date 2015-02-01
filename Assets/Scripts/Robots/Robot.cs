@@ -1,10 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Robot : MonoBehaviour {
+public class Robot : Entity {
 	
 
-	public Global global;
 	public DrainBar drainBar;
 	
 	public float movement;

@@ -1,14 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class water : MonoBehaviour {
+public class Water : MonoBehaviour {
 
 	public int damage = 3;
+	public AudioClip damageSound;
 
 	void OnTriggerStay2D(Collider2D other) {
-		if (other.gameObject.GetComponent<Robot>())
+
+		Robot robot = other.gameObject.GetComponent<Robot>();
+
+		if (robot != null)
 		{
-			other.gameObject.GetComponent<Robot>().Damage(damage);
+			robot.Damage(damage);
+			audio.PlayOneShot(damageSound);
 		}
 
 	}

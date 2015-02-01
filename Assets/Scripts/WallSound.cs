@@ -2,17 +2,15 @@
 using System.Collections;
 
 public class WallSound : MonoBehaviour {
-	
-	void OnTriggerEnter2D(Collider2D otherObj)
+
+	public AudioClip bumpSound;
+
+	void OnCollisionEnter2D(Collision2D otherObj)
 	{
 		
-		if (otherObj.tag == "player")
+		if (otherObj.gameObject.tag == "Player")//(otherObj.gameObject.GetComponent<Robot>())//
 		{
-			Debug.Log ("Hit the wall");
-			audio.Play();
-		}
-		else {
-			audio.Stop();
+			audio.PlayOneShot (bumpSound);
 		}
 	}
 }

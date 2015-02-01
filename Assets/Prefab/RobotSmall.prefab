@@ -28,9 +28,10 @@ GameObject:
   - 50: {fileID: 5034672}
   - 61: {fileID: 6134672}
   - 82: {fileID: 8234672}
+  - 95: {fileID: 9505896}
   m_Layer: 0
-  m_Name: Smallbot
-  m_TagString: Untagged
+  m_Name: RobotSmall
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42,7 +43,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -.762530029, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 434672}
@@ -54,7 +55,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 134672}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.48009968, y: 7.84950018, z: 0}
+  m_LocalPosition: {x: -9.48009968, y: 7.96169996, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400000}
@@ -66,11 +67,11 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 134672}
-  m_Mass: 1
+  m_Mass: .5
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 1
-  m_FixedAngle: 0
+  m_FixedAngle: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -84,8 +85,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .715170443, y: .407606781}
-  m_Center: {x: -.0402202606, y: -.425854683}
+  m_Size: {x: 1.10933805, y: .500054121}
+  m_Center: {x: -.000180244446, y: -.472078323}
 --- !u!82 &8234672
 AudioSource:
   m_ObjectHideFlags: 1
@@ -144,6 +145,21 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!95 &9505896
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 134672}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6425328a3bd8a8544849d50d44e2ed85, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11434672
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -155,15 +171,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6721a20245c0e747866f0f0d3e5689e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidBody2d: {fileID: 5034672}
   drainBar: {fileID: 0}
   movement: 6
-  jump: 300
+  maxSpeed: 6
+  jump: 150
   activated: 1
   current: 0
-  groundCheck: {fileID: 100000}
-  global: {fileID: 0}
-  batteryDrainSpeed: 15
+  batteryDrainSpeed: 50
 --- !u!212 &21234672
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -184,7 +198,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 170523663
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e469fd6d4cbd9a94aa95b2ccf710f9c3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7adae6902d0ff4b46b12bd31b6cc5c14, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:

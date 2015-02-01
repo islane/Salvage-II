@@ -3,6 +3,7 @@ using System.Collections;
 
 public class ExitGame : MonoBehaviour {
 	public AudioClip audio;
+	public string levelToLoad = "WinScene";
 	// Use this for initialization
 	void Start () {
 	
@@ -19,7 +20,7 @@ public class ExitGame : MonoBehaviour {
 		if (other.gameObject.GetComponent<Robot>())	{
 			AudioSource.PlayClipAtPoint(audio, transform.position);
 			Debug.Log("Player Exit");
-			Application.LoadLevel("WinScene");
+			Application.LoadLevel(levelToLoad);
 		}
 	}
 }

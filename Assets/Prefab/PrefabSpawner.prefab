@@ -1,49 +1,47 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &162110
+--- !u!1 &107334
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 462110}
-  - 114: {fileID: 11462110}
+  - 4: {fileID: 407334}
+  - 114: {fileID: 11407334}
   m_Layer: 0
-  m_Name: Global
+  m_Name: PrefabSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &462110
+--- !u!4 &407334
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 162110}
+  m_GameObject: {fileID: 107334}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .634549975, y: .534839988, z: 0}
+  m_LocalPosition: {x: -10.842, y: -3.05699992, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11462110
+--- !u!114 &11407334
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 162110}
+  m_GameObject: {fileID: 107334}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dda5ebd53fda0554a800db3fd7a3876e, type: 3}
+  m_Script: {fileID: 11500000, guid: bc6ca54eb13eff5468d2f19cdb12e00b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentRobot: {fileID: 0}
-  robotSmall: {fileID: 0}
-  robotJump: {fileID: 0}
-  robotPush: {fileID: 0}
-  drainBar: {fileID: 0}
+  prefabToSpawn: {fileID: 192000, guid: 7a8a2491d1bddf945b11c3ceb70db2d8, type: 2}
+  intervalInSeconds: .699999988
+  active: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -53,6 +51,6 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 162110}
+  m_RootGameObject: {fileID: 107334}
   m_IsPrefabParent: 1
   m_IsExploded: 1

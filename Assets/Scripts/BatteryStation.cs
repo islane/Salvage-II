@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BatterStation : MonoBehaviour {
+public class BatteryStation : MonoBehaviour {
 	public AudioClip audio;
 	void OnTriggerEnter2D(Collider2D other) {
 		if (other.gameObject.tag == "Player") {

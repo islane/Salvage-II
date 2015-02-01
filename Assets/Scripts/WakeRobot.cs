@@ -4,7 +4,6 @@ using System.Collections;
 public class WakeRobot : MonoBehaviour {
 
 	public Robot robotToWake;
-	Global global;
 	// Use this for initialization
 	void Start () {
 	
@@ -17,8 +16,14 @@ public class WakeRobot : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		robotToWake.activated = true;
-		//global.currentRobot = ;
-		
+		Robot robot = other.gameObject.GetComponent<Robot>();
+
+		//Trigger if the object is the player controlled robot
+		if (robot != null && robot.current)
+		{
+			robotToWake.activated = true;
+			//global.currentRobot = ; //TODO: Do we want to switch to the new robot automaticaly?
+		}
+
 	}
 }

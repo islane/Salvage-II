@@ -3,21 +3,19 @@ using System.Collections;
 
 public class CameraController : MonoBehaviour {
 
-	//public float speed = 5.0f;
-	GameObject currentCharacter;
+	GameManager gameManager;
 
-	float xSmooth = 2.0f;
-	float ySmooth = 2.0f;
-	Global global;
+	public float xSmooth = 2.0f;
+	public float ySmooth = 2.0f;
 
 	// Use this for initialization
 	void Start () {
-		global = GameObject.Find ("Global").GetComponent<Global>();
+		gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		currentCharacter = global.currentRobot.gameObject;
+		GameObject currentCharacter = gameManager.currentRobot.gameObject;//GameManager.Instance.currentRobot.gameObject;
 		float targetX = Mathf.Lerp(transform.position.x, currentCharacter.transform.position.x, xSmooth * Time.deltaTime);
 		float targetY = Mathf.Lerp(transform.position.y, currentCharacter.transform.position.y, ySmooth * Time.deltaTime);
 		transform.position = new Vector3(targetX, targetY, transform.position.z);
