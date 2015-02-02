@@ -332,7 +332,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabToSpawn: {fileID: 192000, guid: 7a8a2491d1bddf945b11c3ceb70db2d8, type: 2}
   intervalInSeconds: .699999988
-  active: 1
+  isActive: 1
 --- !u!4 &75747247
 Transform:
   m_ObjectHideFlags: 0
@@ -3655,7 +3655,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49712efc297bd554d92d4e70e4e5c20d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio: {fileID: 8300000, guid: 8db6a8aa6812eb04c843d541fae8693c, type: 3}
+  exitSound: {fileID: 8300000, guid: 8db6a8aa6812eb04c843d541fae8693c, type: 3}
   levelToLoad: WinScene
 --- !u!4 &1590329420
 Transform:

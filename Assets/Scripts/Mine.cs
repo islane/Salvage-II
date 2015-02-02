@@ -2,9 +2,10 @@
 using System.Collections;
 
 public class Mine : MonoBehaviour {
+
 	public int damage = 10;
 	
-	public AudioClip audio;
+	public AudioClip sound;
 	// Use this for initialization
 	void Start () {
 		
@@ -22,7 +23,7 @@ public class Mine : MonoBehaviour {
 			other.gameObject.GetComponent<Robot>().Damage(damage);
 		}
 		
-		AudioSource.PlayClipAtPoint(audio, transform.position);
+		AudioSource.PlayClipAtPoint(sound, transform.position);
 		Destroy (gameObject);
 		//}
 	}
