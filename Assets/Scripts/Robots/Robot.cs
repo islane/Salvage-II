@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Robot : Entity {
-	
+
+public class Robot : Entity 
+{
 
 	public DrainBar drainBar;
 	
@@ -14,17 +15,21 @@ public class Robot : Entity {
 	public bool current = false;
 	public int batteryDrainSpeed = 15;
 
+	public float animationSpeed = 1;
+
 	protected Transform groundCheck;
 	protected Animator animator;
 	protected bool grounded = false;
 	protected int batteryDrain;
+
+	public RobotBattery battery;
 
 	// Use this for initialization
 	protected virtual void Start () 
 	{
 		animator = gameObject.GetComponent<Animator>();
 		groundCheck = transform.FindChild ("GroundCheck").gameObject.transform;
-
+		battery = new RobotBattery();
 	}
 	
 	// Update is called once per frame
@@ -32,8 +37,8 @@ public class Robot : Entity {
 	{
 		if(current)
 		{
-			grounded = Physics2D.Linecast(transform.position , groundCheck.position , 1 << LayerMask.NameToLayer("Floor"));
-			
+			grounded = Physics2D.Linecast(transform.position , groundCheck.position);//, 1 << LayerMask.NameToLayer("Floor"));
+
 			Move ();
 			
 			if (Input.GetButtonDown("Jump") && grounded)
@@ -41,9 +46,9 @@ public class Robot : Entity {
 				Jump(jump);
 			}
 			
-			if (drainBar.currentBattery == 0){
+			/*if (drainBar.currentBattery == 0){
 				Death();
-			}
+			}*/
 			
 		}
 		
@@ -65,7 +70,7 @@ public class Robot : Entity {
 		rigidbody2D.velocity = v;
 
 		//Set animation based on the velosity
-		animator.SetFloat ("Speed", rigidbody2D.velocity.magnitude / maxSpeed);
+		animator.SetFloat ("Speed", rigidbody2D.velocity.magnitude * animationSpeed); // / maxSpeed
 
 		//rotate sprite to face direction
 		Vector2 scale = transform.localScale;
@@ -77,6 +82,12 @@ public class Robot : Entity {
 
 		//Drain battery;
 		Drain();
+		//if (battery.Drain (battery.movingDrain))
+		//	Death ();
+		//battery.Drain (battery.movingDrain);
+		//if(battery.level <= 0)
+		//	Death ();
+		//drainBar.CurrentBattery = (int)battery.level;
 		
 	}
 
@@ -86,21 +97,38 @@ public class Robot : Entity {
 		audio.Play ();
 
 		Drain();
+		//if (battery.Drain (battery.jumpingDrain))
+		//	Death ();
+		//drainBar.CurrentBattery = (int)battery.level;
 	}
 	
 	virtual public void Drain()
 	{
+		//battery.Drain (amount);
+		//drainBar.CurrentBattery = (int)battery.level;
+
 		batteryDrain++;
 		if(batteryDrain > batteryDrainSpeed)
 		{
-			drainBar.CurrentBattery -=1;
+			drainBar.CurrentBattery--;
 			batteryDrain = 0;
+
+			if(drainBar.CurrentBattery <= 0)
+				Death ();
 		}
 	}
 	
 	virtual public void Damage(int dmg)
 	{
+		//if (battery.Drain (dmg))
+		//	Death();
+		//drainBar.CurrentBattery = (int)battery.level;
+
 		drainBar.CurrentBattery -= dmg;
+
+		if(drainBar.CurrentBattery <= 0)
+			Death ();
+
 	}
 	
 	virtual public void Death()
