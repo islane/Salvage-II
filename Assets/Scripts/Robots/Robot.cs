@@ -84,6 +84,12 @@ public class Robot : Entity
 		Drain();
 		//if (battery.Drain (battery.movingDrain))
 		//	Death ();
+<<<<<<< HEAD
+=======
+		//battery.Drain (battery.movingDrain);
+		//if(battery.level <= 0)
+		//	Death ();
+>>>>>>> a4e3aa10f25ce414f1d3d125867cf2a5acfecd13
 		//drainBar.CurrentBattery = (int)battery.level;
 		
 	}
