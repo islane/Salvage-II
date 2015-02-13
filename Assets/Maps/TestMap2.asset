@@ -11,17 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56de4b40c01c35b4a8ae192303882e7f, type: 3}
   m_Name: TestMap2
   m_EditorClassIdentifier: 
-  TileLayerSettings:
-  - LayerName: Background
-    GenerateRenderMesh: 1
-    GenerateCollisionMesh: 0
-    ImportLayer: 0
-  - LayerName: Tile Layer 1
-    GenerateRenderMesh: 1
-    GenerateCollisionMesh: 0
-    ImportLayer: 0
-  ObjectLayerSettings:
-  - LayerName: Collisions
-    ImportLayer: 1
-  MapFilename: Assets/Maps/TestMap2.tmx
-  PixelsPerUnit: 64
+  TileLayerSettings: []
+  ObjectLayerSettings: []
+  MapFilename: 
+  PixelsPerUnit: 100
