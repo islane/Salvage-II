@@ -85,11 +85,17 @@ public class Robot : Entity
 		//if (battery.Drain (battery.movingDrain))
 		//	Death ();
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
 		//battery.Drain (battery.movingDrain);
 		//if(battery.level <= 0)
 		//	Death ();
+>>>>>>> a4e3aa10f25ce414f1d3d125867cf2a5acfecd13
 =======
->>>>>>> 580a1dec16f9e779a04196011abe0bf8091c0179
+		//battery.Drain (battery.movingDrain);
+		//if(battery.level <= 0)
+		//	Death ();
+>>>>>>> a4e3aa10f25ce414f1d3d125867cf2a5acfecd13
 		//drainBar.CurrentBattery = (int)battery.level;
 		
 	}
