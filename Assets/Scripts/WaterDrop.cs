@@ -24,7 +24,7 @@ public class WaterDrop : MonoBehaviour {
 
 		if (robot != null)
 		{
-			robot.Damage(damage);
+			robot.DrainBattery(damage);
 			AudioSource.PlayClipAtPoint(electrocuteSound, transform.position);
 		}
 

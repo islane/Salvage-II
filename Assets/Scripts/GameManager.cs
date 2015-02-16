@@ -8,7 +8,6 @@ public class GameManager : MonoBehaviour {
 	public Robot robotJump;
 	public Robot robotPush;
 
-	public DrainBar drainBar;
 
 	//public 
 	// Use this for initialization
@@ -23,7 +22,8 @@ public class GameManager : MonoBehaviour {
 		{
 			if(robotSmall.activated)
 			{
-				currentRobot.current = false;
+				if (currentRobot != null) 
+					currentRobot.SetAsCurrent (false);
 				currentRobot = robotSmall;
 			}
 		}
@@ -31,23 +31,28 @@ public class GameManager : MonoBehaviour {
 		{
 			if(robotJump.activated)
 			{
-				currentRobot.current = false;
+				if (currentRobot != null) 
+					currentRobot.SetAsCurrent (false);
 				currentRobot = robotJump;
 			}
 		}
 		if (Input.GetKeyDown (KeyCode.Alpha3))
 		{
 			if(robotPush.activated){
-				currentRobot.current = false;
+				if (currentRobot != null) 
+					currentRobot.SetAsCurrent (false);
 				currentRobot = robotPush;
 			}
 		}
 
-		if(Input.GetKeyDown (KeyCode.T))
+		if (Input.GetKeyDown (KeyCode.T))
 		{
-			drainBar.CurrentBattery -= 2;
+			if (currentRobot != null) 
+				currentRobot.SetAsCurrent (false);
+			currentRobot = null;
 		}
 
-		currentRobot.current = true;
+		if(currentRobot != null)
+			currentRobot.SetAsCurrent (true);
 	}
 }

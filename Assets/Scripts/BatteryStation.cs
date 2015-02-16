@@ -12,10 +12,10 @@ public class BatteryStation : MonoBehaviour {
 
 			//TODO: fix this
 			//Robot robot = other.gameObject.GetComponent<Robot>();
-			DrainBar drainbar = other.gameObject.GetComponent<DrainBar>();
+			BatteryBar drainbar = other.gameObject.GetComponent<BatteryBar>();
 
 			Debug.Log ("Player is charged");
-			drainbar.currentBattery = drainbar.getMaxBattery();
+			drainbar.CurrentBattery = drainbar.GetMaxBattery();
 
 			AudioSource.PlayClipAtPoint(chargingSound, transform.position); 
 		}

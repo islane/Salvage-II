@@ -20,7 +20,7 @@ public class Mine : MonoBehaviour {
 		
 		if (other.gameObject.GetComponent<Robot>())
 		{
-			other.gameObject.GetComponent<Robot>().Damage(damage);
+			other.gameObject.GetComponent<Robot>().DrainBattery(damage);
 		}
 		
 		AudioSource.PlayClipAtPoint(sound, transform.position);

@@ -12,7 +12,7 @@ public class Water : MonoBehaviour {
 
 		if (robot != null)
 		{
-			robot.Damage(damage);
+			robot.DrainBattery(damage);
 			audio.PlayOneShot(damageSound);
 		}
 

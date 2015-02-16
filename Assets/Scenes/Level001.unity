@@ -1884,6 +1884,10 @@ Prefab:
       propertyPath: drainBar
       value: 
       objectReference: {fileID: 1635634041}
+    - target: {fileID: 400000, guid: de63ff070a4cf49438d7a51a3c1674bc, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -.810000002
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: de63ff070a4cf49438d7a51a3c1674bc, type: 2}
   m_RootGameObject: {fileID: 2076576569}
@@ -4404,6 +4408,14 @@ MonoBehaviour:
   activated: 0
   current: 0
   batteryDrainSpeed: 50
+  animationSpeed: 1
+  battery:
+    max: 16
+    level: 16
+    standingDrain: 0
+    movingDrain: .200000003
+    jumpingDrain: .400000006
+    specialDrain: .5
 --- !u!82 &1896108317
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4501,7 +4513,7 @@ Transform:
   m_PrefabInternal: {fileID: 745319901}
   m_GameObject: {fileID: 1900100634}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -.762530029, z: 0}
+  m_LocalPosition: {x: 0, y: -.810000002, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2076576574}
@@ -4828,6 +4840,14 @@ MonoBehaviour:
   activated: 1
   current: 0
   batteryDrainSpeed: 50
+  animationSpeed: 1
+  battery:
+    max: 16
+    level: 16
+    standingDrain: 0
+    movingDrain: .200000003
+    jumpingDrain: .400000006
+    specialDrain: .5
 --- !u!212 &2076576573
 SpriteRenderer:
   m_ObjectHideFlags: 0

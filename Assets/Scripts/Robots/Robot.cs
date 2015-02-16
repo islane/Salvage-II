@@ -1,41 +1,38 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 
 public class Robot : Entity 
 {
-
-	public DrainBar drainBar;
-	
 	public float movement;
 	public float maxSpeed;
-	public float jump;
-
+	public float jumpAmount;
 	public bool activated = false;
-	public bool current = false;
-	public int batteryDrainSpeed = 15;
 
 	public float animationSpeed = 1;
+
+	public RobotBattery battery;
+
+	protected bool isControlledCharacter = false;
 
 	protected Transform groundCheck;
 	protected Animator animator;
 	protected bool grounded = false;
 	protected int batteryDrain;
 
-	public RobotBattery battery;
 
 	// Use this for initialization
 	protected virtual void Start () 
 	{
 		animator = gameObject.GetComponent<Animator>();
 		groundCheck = transform.FindChild ("GroundCheck").gameObject.transform;
-		battery = new RobotBattery();
 	}
 	
 	// Update is called once per frame
 	protected virtual void Update () 
 	{
-		if(current)
+
+		if(isControlledCharacter)
 		{
 			grounded = Physics2D.Linecast(transform.position , groundCheck.position);//, 1 << LayerMask.NameToLayer("Floor"));
 
@@ -43,13 +40,11 @@ public class Robot : Entity
 			
 			if (Input.GetButtonDown("Jump") && grounded)
 			{
-				Jump(jump);
+				Jump(jumpAmount);
 			}
-			
-			/*if (drainBar.currentBattery == 0){
-				Death();
-			}*/
-			
+
+			DrainBattery (battery.standingDrain);
+
 		}
 		
 	}
@@ -58,10 +53,14 @@ public class Robot : Entity
 	{
 		float axis =  Input.GetAxis("Horizontal");
 
-		//Add force
+		//If player is inputting movement
 		if(axis != 0)
 		{
+			//Add force 
 			rigidbody2D.AddForce(new Vector2(movement * axis, 0.0f));
+
+			//Drain battery;
+			DrainBattery (battery.movingDrain);
 		}
 
 		//Clamp at max speed
@@ -80,59 +79,37 @@ public class Robot : Entity
 			scale.x = -1;
 		transform.localScale = scale;
 
-		//Drain battery;
-		Drain();
-		//if (battery.Drain (battery.movingDrain))
-		//	Death ();
-		//battery.Drain (battery.movingDrain);
-		//if(battery.level <= 0)
-		//	Death ();
-		//drainBar.CurrentBattery = (int)battery.level;
-		
 	}
 
-	virtual public void Jump(float jump)
+	virtual public void Jump(float amount)
 	{
-		rigidbody2D.AddForce(new Vector2(0.0f, jump));
+		rigidbody2D.AddForce(new Vector2(0.0f, amount));
 		audio.Play ();
 
-		Drain();
-		//if (battery.Drain (battery.jumpingDrain))
-		//	Death ();
-		//drainBar.CurrentBattery = (int)battery.level;
+		DrainBattery (battery.jumpingDrain);
+
 	}
 	
-	virtual public void Drain()
+	virtual public void DrainBattery(float amount)
 	{
-		//battery.Drain (amount);
-		//drainBar.CurrentBattery = (int)battery.level;
-
-		batteryDrain++;
-		if(batteryDrain > batteryDrainSpeed)
-		{
-			drainBar.CurrentBattery--;
-			batteryDrain = 0;
-
-			if(drainBar.CurrentBattery <= 0)
-				Death ();
-		}
-	}
-	
-	virtual public void Damage(int dmg)
-	{
-		//if (battery.Drain (dmg))
-		//	Death();
-		//drainBar.CurrentBattery = (int)battery.level;
-
-		drainBar.CurrentBattery -= dmg;
-
-		if(drainBar.CurrentBattery <= 0)
+		battery.Drain (amount);
+		if(battery.isDead())
 			Death ();
 
 	}
-	
+
 	virtual public void Death()
 	{
 		Application.LoadLevel ("GameOver");
+	}
+
+	virtual public void SetAsCurrent(bool current)
+	{
+		this.isControlledCharacter = current;
+	}
+
+	virtual public bool IsControlledCharacter()
+	{
+		return(isControlledCharacter);
 	}
 }
