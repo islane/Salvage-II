@@ -3,13 +3,17 @@ using System.Collections;
 
 public class Entity : MonoBehaviour {
 
+	protected GameManager gameManager;
+
 	// Use this for initialization
-	void Start () {
-	
+	virtual public void Start () {
+		GameObject go = GameObject.FindGameObjectWithTag ("GameManager");
+		gameManager = go.GetComponent<GameManager>();
+
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	virtual public void Update () {
 	
 	}
 }

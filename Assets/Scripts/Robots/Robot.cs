@@ -7,12 +7,14 @@ public class Robot : Entity
 	public float movement;
 	public float maxSpeed;
 	public float jumpAmount;
-	public bool activated = false;
 
 	public float animationSpeed = 1;
 
+	//public static Robot SelectedRobot;
+
 	public RobotBattery battery;
 
+	protected bool isActivated = false;
 	protected bool isControlledCharacter = false;
 
 	protected Transform groundCheck;
@@ -24,6 +26,8 @@ public class Robot : Entity
 	// Use this for initialization
 	protected virtual void Start () 
 	{
+		base.Start ();
+
 		animator = gameObject.GetComponent<Animator>();
 		groundCheck = transform.FindChild ("GroundCheck").gameObject.transform;
 	}
@@ -31,6 +35,7 @@ public class Robot : Entity
 	// Update is called once per frame
 	protected virtual void Update () 
 	{
+		base.Update ();
 
 		if(isControlledCharacter)
 		{
@@ -96,6 +101,18 @@ public class Robot : Entity
 		if(battery.isDead())
 			Death ();
 
+	}
+
+	virtual public void Activate(bool activate)
+	{
+		isActivated = true;
+
+		gameManager.ActivateRobot (this);
+	}
+
+	virtual public bool IsActivated()
+	{
+		return (isActivated);
 	}
 
 	virtual public void Death()

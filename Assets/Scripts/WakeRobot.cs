@@ -21,7 +21,7 @@ public class WakeRobot : MonoBehaviour {
 		//Trigger if the object is the player controlled robot
 		if (robot != null && robot.IsControlledCharacter())
 		{
-			robotToWake.activated = true;
+			robotToWake.Activate (true);
 			//global.currentRobot = ; //TODO: Do we want to switch to the new robot automaticaly?
 		}
 

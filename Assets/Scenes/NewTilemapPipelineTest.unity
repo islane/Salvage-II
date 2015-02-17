@@ -679,6 +679,60 @@ PolygonCollider2D:
       - {x: -4.25, y: -0}
       - {x: -4.25, y: .5}
       - {x: 0, y: .5}
+--- !u!1 &726253130
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 198968, guid: 01272a025b09f6c48b8f44e73d649e71, type: 2}
+  m_PrefabInternal: {fileID: 1917409762}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 726253133}
+  - 114: {fileID: 726253132}
+  - 61: {fileID: 726253131}
+  m_Layer: 0
+  m_Name: WakeRobot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &726253131
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6198968, guid: 01272a025b09f6c48b8f44e73d649e71,
+    type: 2}
+  m_PrefabInternal: {fileID: 1917409762}
+  m_GameObject: {fileID: 726253130}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Size: {x: .661900878, y: .694100857}
+  m_Center: {x: -.169049501, y: -.152949572}
+--- !u!114 &726253132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11498968, guid: 01272a025b09f6c48b8f44e73d649e71,
+    type: 2}
+  m_PrefabInternal: {fileID: 1917409762}
+  m_GameObject: {fileID: 726253130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d286594d65011e4abbe1e67e55f46e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  robotToWake: {fileID: 1896108316}
+--- !u!4 &726253133
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 498968, guid: 01272a025b09f6c48b8f44e73d649e71, type: 2}
+  m_PrefabInternal: {fileID: 1917409762}
+  m_GameObject: {fileID: 726253130}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.20200002, y: -.0120000001, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
 --- !u!1 &812365295
 GameObject:
   m_ObjectHideFlags: 0
@@ -766,7 +820,7 @@ Transform:
   - {fileID: 228550714}
   - {fileID: 341810154}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!1001 &924456194
 Prefab:
   m_ObjectHideFlags: 0
@@ -962,9 +1016,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentRobot: {fileID: 2076576572}
-  robotSmall: {fileID: 2076576572}
-  robotJump: {fileID: 1896108316}
-  robotPush: {fileID: 0}
 --- !u!4 &977568605
 Transform:
   m_ObjectHideFlags: 0
@@ -1117,6 +1168,10 @@ Prefab:
       propertyPath: battery.level
       value: 5000
       objectReference: {fileID: 0}
+    - target: {fileID: 11494488, guid: bb89d01d833597f42b332ca3f7cdc9d7, type: 2}
+      propertyPath: jumpAmount
+      value: 150
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb89d01d833597f42b332ca3f7cdc9d7, type: 2}
   m_RootGameObject: {fileID: 1896108311}
@@ -1194,7 +1249,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 7
 --- !u!1001 &1338575522
 Prefab:
   m_ObjectHideFlags: 0
@@ -1812,7 +1867,7 @@ Transform:
   m_Children:
   - {fileID: 84782907}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 5
 --- !u!61 &1896108314
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1855,8 +1910,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movement: 5
   maxSpeed: 5
-  jumpAmount: 0
-  activated: 0
+  jumpAmount: 150
   animationSpeed: 1
   battery:
     max: 5000
@@ -1967,6 +2021,54 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2076576574}
   m_RootOrder: 0
+--- !u!1001 &1917409762
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 498968, guid: 01272a025b09f6c48b8f44e73d649e71, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 1.20200002
+      objectReference: {fileID: 0}
+    - target: {fileID: 498968, guid: 01272a025b09f6c48b8f44e73d649e71, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -.0120000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 498968, guid: 01272a025b09f6c48b8f44e73d649e71, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 498968, guid: 01272a025b09f6c48b8f44e73d649e71, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 498968, guid: 01272a025b09f6c48b8f44e73d649e71, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 498968, guid: 01272a025b09f6c48b8f44e73d649e71, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 498968, guid: 01272a025b09f6c48b8f44e73d649e71, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 498968, guid: 01272a025b09f6c48b8f44e73d649e71, type: 2}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 11498968, guid: 01272a025b09f6c48b8f44e73d649e71, type: 2}
+      propertyPath: robotToWake
+      value: 
+      objectReference: {fileID: 1896108316}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 01272a025b09f6c48b8f44e73d649e71, type: 2}
+  m_RootGameObject: {fileID: 726253130}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1 &1920205421
 GameObject:
   m_ObjectHideFlags: 0
@@ -2143,7 +2245,6 @@ MonoBehaviour:
   movement: 3
   maxSpeed: 3
   jumpAmount: 100
-  activated: 1
   animationSpeed: .5
   battery:
     max: 200
@@ -2428,4 +2529,4 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
