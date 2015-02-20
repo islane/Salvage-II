@@ -7,6 +7,8 @@ public class Robot : Entity
 	public float movement;
 	public float maxSpeed;
 	public float jumpAmount;
+	public float jumpNumber;
+	protected float jumpsLeft;
 
 	public float animationSpeed = 1;
 
@@ -17,7 +19,10 @@ public class Robot : Entity
 	protected bool isActivated = false;
 	protected bool isControlledCharacter = false;
 
-	protected Transform groundCheck;
+	protected Transform groundCheckA1;
+	protected Transform groundCheckA2;
+	protected Transform groundCheckB1;
+	protected Transform groundCheckB2;
 	protected Animator animator;
 	protected bool grounded = false;
 	protected int batteryDrain;
@@ -29,7 +34,11 @@ public class Robot : Entity
 		base.Start ();
 
 		animator = gameObject.GetComponent<Animator>();
-		groundCheck = transform.FindChild ("GroundCheck").gameObject.transform;
+		groundCheckA1 = transform.Find ("GroundCheckA1").transform;
+		groundCheckA2 = transform.Find ("GroundCheckA2").transform;
+		groundCheckB1 = transform.Find ("GroundCheckB1").transform;
+		groundCheckB2 = transform.Find ("GroundCheckB2").transform;
+		jumpsLeft = jumpNumber;
 	}
 	
 	// Update is called once per frame
@@ -39,25 +48,27 @@ public class Robot : Entity
 
 		if(isControlledCharacter)
 		{
-			grounded = Physics2D.Linecast(transform.position , groundCheck.position);//, 1 << LayerMask.NameToLayer("Floor"));
+			//Check to see if the robot is on the ground (or some other collider)
+			grounded = TestForGround();
 
-			Move ();
-			
-			if (Input.GetButtonDown("Jump") && grounded)
+			if(grounded)
+				jumpsLeft = jumpNumber;
+
+			if (Input.GetButtonDown("Jump") && jumpsLeft-- > 1)
 			{
-				Jump(jumpAmount);
+				Jump (jumpAmount);
 			}
 
+			Move (Input.GetAxis("Horizontal"));
+			
 			DrainBattery (battery.standingDrain);
 
 		}
 		
 	}
 	
-	virtual public void Move()
+	virtual public void Move(float axis)
 	{
-		float axis =  Input.GetAxis("Horizontal");
-
 		//If player is inputting movement
 		if(axis != 0)
 		{
@@ -90,9 +101,16 @@ public class Robot : Entity
 	{
 		rigidbody2D.AddForce(new Vector2(0.0f, amount));
 		audio.Play ();
-
 		DrainBattery (battery.jumpingDrain);
+	}
 
+	virtual public bool TestForGround()
+	{
+		// Test each bottom corner
+		bool g1 = Physics2D.Linecast(groundCheckA1.position , groundCheckA2.position);
+		bool g2 = Physics2D.Linecast(groundCheckB1.position , groundCheckB2.position);
+		//If either corner is touching the ground, then the robot is standing
+		return (g1 || g2) ? true : false;
 	}
 	
 	virtual public void DrainBattery(float amount)

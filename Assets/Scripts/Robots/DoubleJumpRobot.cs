@@ -10,6 +10,7 @@ public class DoubleJumpRobot : Robot{
 	
 	// Update is called once per frame
 	protected override void Update () {
+		Debug.Log (grounded);
 		base.Update ();
 	}
 }
