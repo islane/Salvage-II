@@ -39,10 +39,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 433318}
   - 212: {fileID: 21233314}
-  - 95: {fileID: 9533314}
-  - 114: {fileID: 11433314}
   - 50: {fileID: 5033314}
   - 60: {fileID: 6033314}
+  - 114: {fileID: 11485334}
+  - 95: {fileID: 9533314}
   - 82: {fileID: 8233314}
   m_Layer: 0
   m_Name: RobotJump
@@ -58,7 +58,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 133314}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .194000006, y: -.485000014, z: 0}
+  m_LocalPosition: {x: -.552999973, y: -.967000008, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 433318}
@@ -70,7 +70,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 133316}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.194000006, y: -.486000001, z: 0}
+  m_LocalPosition: {x: .565999985, y: -.967000008, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 433318}
@@ -82,7 +82,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 133318}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.05999994, y: -.769999981, z: 0}
+  m_LocalPosition: {x: 3.75, y: -1.66999996, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 433316}
@@ -111,17 +111,16 @@ PolygonCollider2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 133318}
   m_Enabled: 1
-  m_Material: {fileID: 6200000, guid: 46f3f7ec5272484468fe0524094d85d6, type: 2}
+  m_Material: {fileID: 6200000, guid: 848fae1118a0183488ef6e7a88511193, type: 2}
   m_IsTrigger: 0
   m_Poly:
     m_Paths:
-    - - {x: -.152271032, y: .311203003}
-      - {x: -.305913389, y: .0723042488}
-      - {x: -.226427436, y: -.459998608}
-      - {x: .00346148014, y: -.467739105}
-      - {x: .257475734, y: -.461226344}
-      - {x: .322785735, y: .0634513497}
-      - {x: .157830954, y: .315682888}
+    - - {x: .567486286, y: .49510777}
+      - {x: .0235824585, y: .679017186}
+      - {x: -.532112598, y: .499906063}
+      - {x: -.683982372, y: -.873369277}
+      - {x: .0215358734, y: -.950281978}
+      - {x: .687452793, y: -.878355443}
 --- !u!82 &8233314
 AudioSource:
   m_ObjectHideFlags: 1
@@ -131,7 +130,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: baf9f4485f1e20e4c9cb3d4ad581f0f7, type: 3}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -195,7 +194,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11433314
+--- !u!114 &11485334
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -203,14 +202,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 133318}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6721a20245c0e747866f0f0d3e5689e, type: 3}
+  m_Script: {fileID: 11500000, guid: 61c75734df1e20040974b4eee46e1c21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement: 7
-  maxSpeed: 2.5
-  jumpForce: 250
+  movement: 35
+  maxSpeed: 6
+  jumpForce: 700
   numberOfJumps: 2
-  animationSpeed: 1
   battery:
     max: 200
     level: 200
@@ -238,7 +236,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 170523663
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 66f6d9a382fffb248b6ef753eae74240, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8474fe8c3ab53c84b9f39b34c762d47c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:

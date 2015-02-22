@@ -136,7 +136,7 @@ namespace FuncWorks.Unity.UTiled {
                     importer.textureType = TextureImporterType.Sprite;
                     importer.spriteImportMode = SpriteImportMode.Multiple;
                     importer.filterMode = FilterMode.Point;
-                    importer.spritePixelsToUnits = settings.PixelsPerUnit;
+                    importer.spritePixelsPerUnit = settings.PixelsPerUnit;
 
                     // Reflection Hack because this is a private method to get the non scaled size of the texture
                     object[] args = new object[2] { 0, 0 };

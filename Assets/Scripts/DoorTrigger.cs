@@ -1,21 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Door : MonoBehaviour {
+public class DoorTrigger : MonoBehaviour {
 
-	public bool isWinning = false;//open the right door and you win the game
-	public Rigidbody2D rigidBody;
+	public GameObject DoorToOpen;
 
-	void Start(){
-		//rigidBody = gameObject.GetComponent<Rigidbody2D>();
-	}
-
-	public void Open(){
-		gameObject.SetActive(false);
-	}
-
-	public void Close(){
-		gameObject.SetActive(true);
+	// Use this for initialization
+	void Start () {
+	
 	}
 	
 	// Update is called once per frame
@@ -23,6 +15,7 @@ public class Door : MonoBehaviour {
 	
 	}
 
+	
 	void OnTriggerEnter2D(Collider2D other)
 	{
 		Robot robot = other.gameObject.GetComponent<Robot>();
@@ -30,7 +23,7 @@ public class Door : MonoBehaviour {
 		//Trigger if the object is the player controlled robot
 		if (robot != null && robot.IsControlledCharacter())
 		{
-			Application.LoadLevel("WinScene");
+			DoorToOpen.SetActive (false);
 			//global.currentRobot = ; //TODO: Do we want to switch to the new robot automaticaly?
 		}
 		

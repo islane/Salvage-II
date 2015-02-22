@@ -15,7 +15,7 @@ public class Robot : Entity
 	protected bool isJumping;
 	protected int jumpTime;
 
-	public float animationSpeed = 1;
+	protected float animationSpeed = 1;
 
 	//public static Robot SelectedRobot;
 
@@ -32,7 +32,7 @@ public class Robot : Entity
 
 
 	// Use this for initialization
-	protected virtual void Start () 
+	protected override void Start () 
 	{
 		base.Start ();
 
@@ -43,7 +43,7 @@ public class Robot : Entity
 	}
 	
 	// Update is called once per frame
-	protected virtual void Update () 
+	protected override void Update () 
 	{
 		base.Update ();
 

@@ -6,13 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Level001Remake2ADS.unity
-  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
   - enabled: 1
-    path: Assets/Scenes/Level001.unity
+    path: Assets/Scenes/Level002ADS.unity
   - enabled: 0
-    path: Assets/Scenes/AdamScene01.unity
+    path: Assets/Scenes/Level001.unity
   - enabled: 1
     path: Assets/Scenes/WinScene.unity
   - enabled: 1

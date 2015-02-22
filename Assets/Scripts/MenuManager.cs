@@ -6,7 +6,7 @@ public class MenuManager : MonoBehaviour {
 	public Texture2D cursorTexture;
 
 	public void OnClickMenu () {
-        Application.LoadLevel("Level001");
+        Application.LoadLevel("Level002ADS");
 	}
 
 	public void OnClickQuit () {

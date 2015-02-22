@@ -113,6 +113,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 6033314, guid: 045a2112edd8f5e41be86eb70e38b8aa, type: 2}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 848fae1118a0183488ef6e7a88511193, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 045a2112edd8f5e41be86eb70e38b8aa, type: 2}
   m_RootGameObject: {fileID: 1281729349}
@@ -1812,7 +1816,7 @@ PolygonCollider2D:
   m_PrefabInternal: {fileID: 16461502}
   m_GameObject: {fileID: 1281729349}
   m_Enabled: 1
-  m_Material: {fileID: 6200000, guid: 46f3f7ec5272484468fe0524094d85d6, type: 2}
+  m_Material: {fileID: 6200000, guid: 848fae1118a0183488ef6e7a88511193, type: 2}
   m_IsTrigger: 0
   m_Poly:
     m_Paths:
