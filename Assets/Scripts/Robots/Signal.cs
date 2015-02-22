@@ -26,7 +26,7 @@ public class Signal: Robot {
 			bot_active = true;
 			if (Input.GetButtonDown ("Special"))
 			{
-				Jump(jumpAmount);
+				Jump(jumpForce);
 			}
 		} 
 
