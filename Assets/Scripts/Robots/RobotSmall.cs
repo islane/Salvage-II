@@ -11,6 +11,8 @@ public class RobotSmall : Robot {
 	// Update is called once per frame
 	protected override void Update () {
 		base.Update ();
+
+
 	}
 
 
