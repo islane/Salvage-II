@@ -44,6 +44,7 @@ GameObject:
   - 114: {fileID: 11485334}
   - 95: {fileID: 9533314}
   - 82: {fileID: 8233314}
+  - 60: {fileID: 6034930}
   m_Layer: 0
   m_Name: RobotJump
   m_TagString: Untagged
@@ -58,7 +59,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 133314}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.552999973, y: -.967000008, z: 0}
+  m_LocalPosition: {x: -.552999973, y: -.953000009, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 433318}
@@ -70,7 +71,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 133316}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .565999985, y: -.967000008, z: 0}
+  m_LocalPosition: {x: .565999985, y: -.953000009, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 433318}
@@ -82,7 +83,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 133318}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.75, y: -1.66999996, z: 0}
+  m_LocalPosition: {x: -23.8099995, y: 3.28999996, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 433316}
@@ -115,12 +116,27 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_Poly:
     m_Paths:
-    - - {x: .567486286, y: .49510777}
-      - {x: .0235824585, y: .679017186}
-      - {x: -.532112598, y: .499906063}
+    - - {x: .627691269, y: -.139060259}
+      - {x: -.556194305, y: -.134261847}
       - {x: -.683982372, y: -.873369277}
       - {x: .0215358734, y: -.950281978}
       - {x: .687452793, y: -.878355443}
+--- !u!60 &6034930
+PolygonCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 133318}
+  m_Enabled: 1
+  m_Material: {fileID: 6200000, guid: 46f3f7ec5272484468fe0524094d85d6, type: 2}
+  m_IsTrigger: 0
+  m_Poly:
+    m_Paths:
+    - - {x: .503427505, y: -.142060995}
+      - {x: .809185028, y: .301589966}
+      - {x: .00894737244, y: .688079119}
+      - {x: -.742984772, y: .297309637}
+      - {x: -.380437851, y: -.14717412}
 --- !u!82 &8233314
 AudioSource:
   m_ObjectHideFlags: 1
@@ -207,7 +223,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movement: 35
   maxSpeed: 6
-  jumpForce: 700
+  jumpForce: 15
+  jumpBoost: 8
   numberOfJumps: 2
   battery:
     max: 200

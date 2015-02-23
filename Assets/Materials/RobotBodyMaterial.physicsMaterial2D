@@ -5,6 +5,6 @@ PhysicsMaterial2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: RobotJumpMaterial
-  friction: .400000006
+  m_Name: RobotBodyMaterial
+  friction: .200000003
   bounciness: 0

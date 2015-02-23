@@ -22,7 +22,7 @@ MonoBehaviour:
     ImportLayer: 0
   - LayerName: Door1
     GenerateRenderMesh: 1
-    GenerateCollisionMesh: 1
+    GenerateCollisionMesh: 0
     ImportLayer: 0
   ObjectLayerSettings:
   - LayerName: Collisions

@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 
 public class Robot : Entity 
@@ -7,13 +8,9 @@ public class Robot : Entity
 	public float movement;
 	public float maxSpeed;
 	public float jumpForce;
+	public float jumpBoost;
 	public float numberOfJumps;
-	protected float holdJumpBoost = 0.02f;
-	protected int firstFrameForDoubleJump = 15;
-	protected int LastFrameForForceAdd = 20;
-	protected float jumpsRemaining;
-	protected bool isJumping;
-	protected int jumpTime;
+	protected int jumpNumber;
 
 	protected float animationSpeed = 1;
 
@@ -26,9 +23,12 @@ public class Robot : Entity
 
 	protected Transform groundCheckA;
 	protected Transform groundCheckB;
-	protected Animator animator;
 	protected bool grounded = false;
+	protected int selfColliderCount;
+
+	protected Animator animator;
 	protected int batteryDrain;
+
 
 
 	// Use this for initialization
@@ -37,9 +37,10 @@ public class Robot : Entity
 		base.Start ();
 
 		animator = gameObject.GetComponent<Animator>();
+
 		groundCheckA = transform.Find ("GroundCheckA").transform;
 		groundCheckB = transform.Find ("GroundCheckB").transform;
-		jumpsRemaining = numberOfJumps;
+		selfColliderCount = Physics2D.LinecastAll(transform.position , groundCheckA.position).Length;
 	}
 	
 	// Update is called once per frame
@@ -53,10 +54,9 @@ public class Robot : Entity
 			//Check to see if the robot is on the ground (or some other collider)
 			grounded = TestForGround();
 
-			if(grounded)
+			if(grounded)// && Time.frameCount - jumpTime > 1)
 			{
-				jumpsRemaining = numberOfJumps;
-				isJumping = false;
+				jumpNumber = 0;
 			}
 
 			//Player hits the jump button
@@ -64,32 +64,38 @@ public class Robot : Entity
 			{
 				//If the player is on the ground, then no problem
 				if (grounded)
-					Jump (jumpForce);
-				else
 				{
-					//If the player has jumped already, check if more jumps are available and enough time has passed
-					if (isJumping && jumpsRemaining > 0 && Time.frameCount - jumpTime > firstFrameForDoubleJump)
-						Jump (jumpForce);
-					//If the player is in the air but didn't jump, then they fell, and they don't get the first jump
-					if (!isJumping && jumpsRemaining-- > 1)
-						Jump (jumpForce);
+					Jump (jumpForce);
 				}
-				jumpsRemaining--;
+				else //Double Jump
+				{
+					//If the player has jumped already, check if more jumps are available
+					if(jumpNumber > 0 && jumpNumber < numberOfJumps)
+					{
+						Jump (jumpForce);
+					}
+					//If the player is in the air but didn't jump, then they fell, and they don't get the first jump
+					if(jumpNumber == 0 && numberOfJumps > 1)
+					{
+						jumpNumber++;
+						Jump (jumpForce);
+					}
+				}
 			}
 
 			//If the player continues to hold the jump button, then they jump a little higher
 			if(Input.GetButton ("Jump"))
 			{
-				//If the player is still jumping and not too much time has passed, then add the extra force.
-				if(isJumping && Time.frameCount - jumpTime < LastFrameForForceAdd)
+				//Only apply force if the bot is in the upward part of the jump
+				if (rigidbody2D.velocity.y > 0)
 				{
-					rigidbody2D.AddForce(new Vector2(0.0f, jumpForce * holdJumpBoost));
+					rigidbody2D.AddForce(new Vector2(0.0f, jumpBoost));
 				}
 			
 			}
 
 			//Animation parameter
-			animator.SetBool ("Jumping", isJumping);
+			animator.SetBool ("Jumping", Convert.ToBoolean (jumpNumber));
 
 
 			Move (Input.GetAxis("Horizontal"));
@@ -134,25 +140,30 @@ public class Robot : Entity
 
 	}
 
-	virtual public void Jump(float amount)
+	virtual public void Jump(float force)
 	{
-		rigidbody2D.AddForce(new Vector2(0.0f, amount));
+		//rigidbody2D.AddForce(new Vector2(0.0f, force));
+		rigidbody2D.velocity = new Vector2(0.0f, force);
 		audio.Play ();
 		DrainBattery (battery.jumpingDrain);
-		isJumping = true;
-		jumpTime = Time.frameCount;
+		jumpNumber++;
 	}
-
+	virtual public void Jump(Vector2 vector)
+	{
+		//rigidbody2D.AddForce(vector);
+		rigidbody2D.velocity = vector;
+		audio.Play ();
+		DrainBattery (battery.jumpingDrain);
+		jumpNumber++;
+	}
 	virtual public bool TestForGround()
 	{
 		// Test each bottom corner
 		RaycastHit2D[] g1 = Physics2D.LinecastAll(transform.position , groundCheckA.position);
 		RaycastHit2D[] g2 = Physics2D.LinecastAll(transform.position , groundCheckB.position);
-		//bool c1 = false;
-		//bool c2 = false;
-		//if(g1.Length > 1)
+
 		//If either corner is touching the ground, then the robot is standing
-		return (g1.Length > 1 || g2.Length > 1) ? true : false;
+		return (g1.Length > selfColliderCount || g2.Length > selfColliderCount) ? true : false;
 		
 	}
 	
