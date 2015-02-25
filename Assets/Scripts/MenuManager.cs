@@ -5,8 +5,10 @@ public class MenuManager : MonoBehaviour {
 
 	public Texture2D cursorTexture;
 
+	public string levelToPlay;
+
 	public void OnClickMenu () {
-        Application.LoadLevel("Level002ADS");
+        Application.LoadLevel(levelToPlay);
 	}
 
 	public void OnClickQuit () {

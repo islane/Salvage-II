@@ -14,7 +14,6 @@ GameObject:
   - 114: {fileID: 11465656}
   - 95: {fileID: 9528696}
   - 82: {fileID: 8228696}
-  - 60: {fileID: 6065656}
   - 60: {fileID: 6065658}
   m_Layer: 0
   m_Name: RobotSmall
@@ -60,7 +59,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 128696}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.91999996, y: -6.80000019, z: 0}
+  m_LocalPosition: {x: 33.9780884, y: -28.9570045, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 428698}
@@ -122,22 +121,6 @@ PolygonCollider2D:
       - {x: -.440478325, y: .030813694}
       - {x: .00235462189, y: -.0029463768}
       - {x: .436494827, y: .0401978493}
---- !u!60 &6065656
-PolygonCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 128696}
-  m_Enabled: 1
-  m_Material: {fileID: 6200000, guid: 46f3f7ec5272484468fe0524094d85d6, type: 2}
-  m_IsTrigger: 0
-  m_Poly:
-    m_Paths:
-    - - {x: .503427505, y: -.142060995}
-      - {x: .809185028, y: .301589966}
-      - {x: .00894737244, y: .688079119}
-      - {x: -.742984772, y: .297309637}
-      - {x: -.380437851, y: -.14717412}
 --- !u!60 &6065658
 PolygonCollider2D:
   m_ObjectHideFlags: 1

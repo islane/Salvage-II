@@ -10,7 +10,8 @@ public class Robot : Entity
 	public float jumpForce;
 	public float jumpBoost;
 	public float numberOfJumps;
-	protected int jumpNumber;
+	public int jumpNumber;
+	int jumpTime;
 
 	protected float animationSpeed = 1;
 
@@ -23,8 +24,8 @@ public class Robot : Entity
 
 	protected Transform groundCheckA;
 	protected Transform groundCheckB;
-	protected bool grounded = false;
-	protected int selfColliderCount;
+	public bool grounded = false;
+	public int selfColliderCount;
 
 	protected Animator animator;
 	protected int batteryDrain;
@@ -54,7 +55,7 @@ public class Robot : Entity
 			//Check to see if the robot is on the ground (or some other collider)
 			grounded = TestForGround();
 
-			if(grounded)// && Time.frameCount - jumpTime > 1)
+			if(grounded && Time.frameCount - jumpTime > 2)
 			{
 				jumpNumber = 0;
 			}
@@ -112,7 +113,10 @@ public class Robot : Entity
 		if(axis != 0)
 		{
 			//Add force 
-			rigidbody2D.AddForce(new Vector2(movement * axis, 0.0f));
+			//if(grounded)
+				rigidbody2D.AddForce(new Vector2(movement * axis, 0.0f));
+			//else
+			//	rigidbody2D.AddForce(new Vector2((movement * axis) * 0.5f, 0.0f));
 
 			//Drain battery;
 			DrainBattery (battery.movingDrain);
@@ -127,7 +131,7 @@ public class Robot : Entity
 		v.x = Mathf.Clamp(v.x, -maxSpeed, maxSpeed);
 		rigidbody2D.velocity = v;
 
-		//Set animation based on the velosity
+		//Set animation parameter based on the velosity
 		animator.SetFloat ("Speed", rigidbody2D.velocity.magnitude * animationSpeed); // / maxSpeed
 
 		//rotate sprite to face direction
@@ -147,6 +151,7 @@ public class Robot : Entity
 		audio.Play ();
 		DrainBattery (battery.jumpingDrain);
 		jumpNumber++;
+		jumpTime = Time.frameCount;
 	}
 	virtual public void Jump(Vector2 vector)
 	{
@@ -155,7 +160,9 @@ public class Robot : Entity
 		audio.Play ();
 		DrainBattery (battery.jumpingDrain);
 		jumpNumber++;
+		jumpTime = Time.frameCount;
 	}
+
 	virtual public bool TestForGround()
 	{
 		// Test each bottom corner
@@ -201,4 +208,5 @@ public class Robot : Entity
 	{
 		return(isControlledCharacter);
 	}
+
 }

@@ -18,7 +18,7 @@ TagManager:
   Builtin Layer 6: 
   Builtin Layer 7: 
   User Layer 8: Floor
-  User Layer 9: 
+  User Layer 9: Doors
   User Layer 10: 
   User Layer 11: 
   User Layer 12: 
@@ -50,6 +50,10 @@ TagManager:
     userID: 1
     uniqueID: 2620975609
     locked: 0
+  - name: Midground
+    userID: 4
+    uniqueID: 352867401
+    locked: 0
   - name: Interaction
     userID: 2
     uniqueID: 2132753363
@@ -57,4 +61,12 @@ TagManager:
   - name: Characters
     userID: 3
     uniqueID: 170523663
+    locked: 0
+  - name: Foreground
+    userID: 5
+    uniqueID: 2715028493
+    locked: 0
+  - name: UI
+    userID: 6
+    uniqueID: 2564127751
     locked: 0

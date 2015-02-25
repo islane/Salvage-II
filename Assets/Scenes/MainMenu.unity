@@ -812,6 +812,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cursorTexture: {fileID: 2800000, guid: 0946de014ae81cb4f9296dee0b783208, type: 3}
+  levelToPlay: Test05ADS
 --- !u!224 &811538564
 RectTransform:
   m_ObjectHideFlags: 0

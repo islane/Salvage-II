@@ -17,7 +17,12 @@ public class ExitGame : MonoBehaviour {
 	
 	void OnTriggerEnter2D(Collider2D other) {
 		
-		if (other.gameObject.GetComponent<Robot>())	{
+		//if (other.gameObject.GetComponent<Robot>())	{
+		Robot robot = other.gameObject.GetComponent<Robot>();
+		
+		//Trigger if the object is the player controlled robot
+		if (robot != null && robot.IsControlledCharacter())
+		{
 			AudioSource.PlayClipAtPoint(exitSound, transform.position);
 			Debug.Log("Player Exit");
 			Application.LoadLevel(levelToLoad);
