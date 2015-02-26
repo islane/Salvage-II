@@ -1126,13 +1126,13 @@ RectTransform:
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 195274, guid: 5709a05e3522cb744b37afde75730361, type: 2}
-  m_PrefabInternal: {fileID: 988436558}
+  m_PrefabInternal: {fileID: 1219673764}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 784982134}
   - 114: {fileID: 784982133}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: LevelManager
   m_TagString: GameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1141,13 +1141,13 @@ GameObject:
 --- !u!114 &784982133
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11495274, guid: 5709a05e3522cb744b37afde75730361,
+  m_PrefabParentObject: {fileID: 11494298, guid: 5709a05e3522cb744b37afde75730361,
     type: 2}
-  m_PrefabInternal: {fileID: 988436558}
+  m_PrefabInternal: {fileID: 1219673764}
   m_GameObject: {fileID: 784982132}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dda5ebd53fda0554a800db3fd7a3876e, type: 3}
+  m_Script: {fileID: 11500000, guid: f7b7c8c843982c248bd4002b02298fcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentRobot: {fileID: 1121487738}
@@ -1155,7 +1155,7 @@ MonoBehaviour:
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 495274, guid: 5709a05e3522cb744b37afde75730361, type: 2}
-  m_PrefabInternal: {fileID: 988436558}
+  m_PrefabInternal: {fileID: 1219673764}
   m_GameObject: {fileID: 784982132}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -.165238231, y: -.217016593, z: 0}
@@ -1366,54 +1366,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7464a965e0e5343d4bb771e93a413d5f, type: 2}
   m_RootGameObject: {fileID: 1082279943}
-  m_IsPrefabParent: 0
-  m_IsExploded: 1
---- !u!1001 &988436558
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 495274, guid: 5709a05e3522cb744b37afde75730361, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -.165238231
-      objectReference: {fileID: 0}
-    - target: {fileID: 495274, guid: 5709a05e3522cb744b37afde75730361, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -.217016593
-      objectReference: {fileID: 0}
-    - target: {fileID: 495274, guid: 5709a05e3522cb744b37afde75730361, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 495274, guid: 5709a05e3522cb744b37afde75730361, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 495274, guid: 5709a05e3522cb744b37afde75730361, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 495274, guid: 5709a05e3522cb744b37afde75730361, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 495274, guid: 5709a05e3522cb744b37afde75730361, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 495274, guid: 5709a05e3522cb744b37afde75730361, type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11495274, guid: 5709a05e3522cb744b37afde75730361, type: 2}
-      propertyPath: currentRobot
-      value: 
-      objectReference: {fileID: 1121487738}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 5709a05e3522cb744b37afde75730361, type: 2}
-  m_RootGameObject: {fileID: 784982132}
   m_IsPrefabParent: 0
   m_IsExploded: 1
 --- !u!1 &1082279943
@@ -1648,7 +1600,6 @@ MonoBehaviour:
   jumpForce: 15
   jumpBoost: 7
   numberOfJumps: 2
-  jumpNumber: 0
   battery:
     max: 200
     level: 200
@@ -1656,8 +1607,6 @@ MonoBehaviour:
     movingDrain: .100000001
     jumpingDrain: 2
     specialDrain: 4
-  grounded: 0
-  selfColliderCount: 0
 --- !u!60 &1121487739
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1899,6 +1848,54 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 915118121}
   m_GameObject: {fileID: 1185075688}
+--- !u!1001 &1219673764
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 495274, guid: 5709a05e3522cb744b37afde75730361, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -.165238231
+      objectReference: {fileID: 0}
+    - target: {fileID: 495274, guid: 5709a05e3522cb744b37afde75730361, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -.217016593
+      objectReference: {fileID: 0}
+    - target: {fileID: 495274, guid: 5709a05e3522cb744b37afde75730361, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 495274, guid: 5709a05e3522cb744b37afde75730361, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 495274, guid: 5709a05e3522cb744b37afde75730361, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 495274, guid: 5709a05e3522cb744b37afde75730361, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 495274, guid: 5709a05e3522cb744b37afde75730361, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 495274, guid: 5709a05e3522cb744b37afde75730361, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11494298, guid: 5709a05e3522cb744b37afde75730361, type: 2}
+      propertyPath: currentRobot
+      value: 
+      objectReference: {fileID: 1121487738}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 5709a05e3522cb744b37afde75730361, type: 2}
+  m_RootGameObject: {fileID: 784982132}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1 &1233485579
 GameObject:
   m_ObjectHideFlags: 0
@@ -1938,7 +1935,6 @@ MonoBehaviour:
   jumpForce: 10
   jumpBoost: 8
   numberOfJumps: 1
-  jumpNumber: 0
   battery:
     max: 200
     level: 200
@@ -1946,8 +1942,6 @@ MonoBehaviour:
     movingDrain: .100000001
     jumpingDrain: 2
     specialDrain: 4
-  grounded: 0
-  selfColliderCount: 0
 --- !u!4 &1233485581
 Transform:
   m_ObjectHideFlags: 0

@@ -467,8 +467,8 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 176, y: 294.5}
-  m_SizeDelta: {x: 352, y: 589}
+  m_AnchoredPosition: {x: 116.5, y: 234.5}
+  m_SizeDelta: {x: 233, y: 469}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1042777855
 MonoBehaviour:
@@ -782,6 +782,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cursorTexture: {fileID: 2800000, guid: 685df75ec5119df458b10d5a9683a94a, type: 3}
+  levelToPlay: 
 --- !u!1 &1643768403
 GameObject:
   m_ObjectHideFlags: 0

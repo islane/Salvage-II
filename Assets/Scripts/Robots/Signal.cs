@@ -10,7 +10,7 @@ public class Signal: Robot {
 	void Start () 
 	{
 		base.Start ();
-		lead = gameManager.currentRobot.transform;//Finds player tag
+		lead = levelManager.currentRobot.transform;//Finds player tag
 
 	}
 	

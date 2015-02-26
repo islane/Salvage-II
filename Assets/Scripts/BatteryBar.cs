@@ -16,7 +16,7 @@ public class BatteryBar : MonoBehaviour {
 	private float maxXValue;
 	float maxBattery; //scales depending on the robot in use
 
-	GameManager gameManager;
+	LevelManager levelManager;
 
 	private float _currentBattery;
 	public float CurrentBattery //access this to edit battery level
@@ -43,8 +43,7 @@ public class BatteryBar : MonoBehaviour {
 		minXValue = batteryTransform.position.x - batteryTransform.rect.width;
 		//Debug.Log ("Minx value: "+minXValue);
 
-		GameObject go = GameObject.FindGameObjectWithTag ("GameManager");
-		gameManager = go.GetComponent<GameManager>();
+		levelManager = GameObject.Find("LevelManager").GetComponent<LevelManager>();
 		//maxBattery = gameManager.currentRobot.battery.max;
 		//CurrentBattery = maxBattery;
 
@@ -53,7 +52,7 @@ public class BatteryBar : MonoBehaviour {
 	void Update () {
 
 		//Hide the display if no robot is selected
-		if(gameManager.currentRobot == null)
+		if(levelManager.currentRobot == null)
 		{
 			canvasGroup.alpha = 0.0f;
 			return;
@@ -62,7 +61,7 @@ public class BatteryBar : MonoBehaviour {
 			canvasGroup.alpha = 1.0f;
 
 		//Get the battery of the current robot
-		RobotBattery battery = gameManager.currentRobot.battery;
+		RobotBattery battery = levelManager.currentRobot.battery;
 
 		//incase the current robot has changed
 		maxBattery = battery.max;

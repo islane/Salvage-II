@@ -10,7 +10,7 @@ public class Robot : Entity
 	public float jumpForce;
 	public float jumpBoost;
 	public float numberOfJumps;
-	public int jumpNumber;
+	int jumpNumber;
 	int jumpTime;
 
 	protected float animationSpeed = 1;
@@ -24,8 +24,8 @@ public class Robot : Entity
 
 	protected Transform groundCheckA;
 	protected Transform groundCheckB;
-	public bool grounded = false;
-	public int selfColliderCount;
+	bool grounded = false;
+	int selfColliderCount;
 
 	protected Animator animator;
 	protected int batteryDrain;
@@ -186,7 +186,7 @@ public class Robot : Entity
 	{
 		isActivated = true;
 
-		gameManager.ActivateRobot (this);
+		levelManager.ActivateRobot (this);
 	}
 
 	virtual public bool IsActivated()

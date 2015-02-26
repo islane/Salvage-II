@@ -3,12 +3,11 @@ using System.Collections;
 
 public class Entity : MonoBehaviour {
 
-	protected GameManager gameManager;
+	protected LevelManager levelManager;
 
 	// Use this for initialization
 	protected virtual void Start () {
-		GameObject go = GameObject.FindGameObjectWithTag ("GameManager");
-		gameManager = go.GetComponent<GameManager>();
+		levelManager = GameObject.Find("LevelManager").GetComponent<LevelManager>();
 
 	}
 	
