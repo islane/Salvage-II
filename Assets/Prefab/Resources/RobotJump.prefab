@@ -223,10 +223,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movement: 35
   maxSpeed: 6
-  jumpForce: 15
+  jumpForce: 16
   jumpBoost: 7
   numberOfJumps: 2
-  jumpNumber: 0
   battery:
     max: 200
     level: 200
@@ -234,8 +233,6 @@ MonoBehaviour:
     movingDrain: .100000001
     jumpingDrain: 2
     specialDrain: 4
-  grounded: 0
-  selfColliderCount: 0
 --- !u!212 &21263106
 SpriteRenderer:
   m_ObjectHideFlags: 1

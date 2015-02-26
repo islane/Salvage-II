@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="64" height="32" tilewidth="16" tileheight="16" nextobjectid="64">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="64" height="32" tilewidth="16" tileheight="16" nextobjectid="89">
  <properties>
   <property name="unity:scale" value="0.0625"/>
  </properties>
  <tileset firstgid="1" source="../Sprites/Tilesets/TestTileset.tsx"/>
- <tileset firstgid="91" source="../Sprites/Tilesets/TestObjects.tsx"/>
+ <tileset firstgid="91" source="../Sprites/Tilesets/Robots.tsx"/>
+ <tileset firstgid="94" source="../Sprites/Tilesets/Objects.tsx"/>
  <layer name="Background" width="64" height="32">
   <properties>
    <property name="unity:sortingLayerName" value="Background"/>
@@ -4119,24 +4120,13 @@
   <properties>
    <property name="unity:sortingLayerName" value="Interaction"/>
   </properties>
-  <object id="41" gid="102" x="128" y="208"/>
-  <object id="42" gid="93" x="288" y="192"/>
-  <object id="43" gid="92" x="624" y="352"/>
-  <object id="44" gid="92" x="624" y="368"/>
-  <object id="45" gid="91" x="672" y="432"/>
-  <object id="46" gid="97" x="480" y="368"/>
-  <object id="51" gid="112" x="128" y="224"/>
-  <object id="52" gid="111" x="112" y="224"/>
-  <object id="53" gid="101" x="112" y="208"/>
-  <object id="54" gid="115" x="944" y="208"/>
-  <object id="55" gid="105" x="944" y="192"/>
-  <object id="56" gid="95" x="944" y="176"/>
-  <object id="57" gid="116" x="960" y="208"/>
-  <object id="58" gid="106" x="960" y="192"/>
-  <object id="59" gid="96" x="960" y="176"/>
-  <object id="60" gid="104" x="512" y="352"/>
-  <object id="61" gid="114" x="512" y="368"/>
-  <object id="62" gid="113" x="496" y="368"/>
-  <object id="63" gid="103" x="496" y="352"/>
+  <object id="79" gid="91" x="112" y="224"/>
+  <object id="82" gid="92" x="496" y="368"/>
+  <object id="83" gid="93" x="944" y="208"/>
+  <object id="84" gid="94" x="672" y="432"/>
+  <object id="85" gid="95" x="624" y="368"/>
+  <object id="86" gid="95" x="624" y="352"/>
+  <object id="87" gid="96" x="288" y="192"/>
+  <object id="88" gid="98" x="480" y="368"/>
  </objectgroup>
 </map>

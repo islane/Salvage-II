@@ -5,7 +5,6 @@ using System.Collections.Generic;
 [Tiled2Unity.CustomTiledImporter]
 class CustomTiledImporterSpawnPrefab : Tiled2Unity.ICustomTiledImporter
 {
-	
 	public void HandleCustomProperties(UnityEngine.GameObject gameObject,
 	                                   IDictionary<string, string> props)
 	{
@@ -27,6 +26,17 @@ class CustomTiledImporterSpawnPrefab : Tiled2Unity.ICustomTiledImporter
 			//spawnInstance.transform.localPosition = Vector3.zero;
 			spawnInstance.transform.parent = gameObject.transform.parent.transform;
 			spawnInstance.transform.position = gameObject.transform.position;
+
+			//Special Cases:			
+			//Robots use the center of the sprite as their origin, so they have to be offest
+			if(spawnInstance.GetComponent<Robot>())
+			{
+				//float rWidth = spawnInstance.renderer.bounds.size.x / 2;
+				float rWidth = 16; //Change this as soon as I know how to access it from the exported data...
+				float rHeight = spawnInstance.renderer.bounds.size.y / 2;
+				spawnInstance.transform.position += new Vector3(rWidth, rHeight, 0.0f);
+			}
+
 		}
 		GameObject.DestroyImmediate (gameObject);
 
