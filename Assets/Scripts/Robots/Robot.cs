@@ -90,7 +90,7 @@ public class Robot : Entity
 				//Only apply force if the bot is in the upward part of the jump
 				if (rigidbody2D.velocity.y > 0)
 				{
-					rigidbody2D.AddForce(new Vector2(0.0f, jumpBoost));
+					rigidbody2D.AddForce(new Vector2(0.0f, jumpBoost * Time.deltaTime));
 				}
 			
 			}

@@ -83,7 +83,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 130934}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -444.188385, y: 631.508667, z: 0}
+  m_LocalPosition: {x: 512, y: -363.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 430932}
@@ -223,10 +223,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movement: 35
   maxSpeed: 6
-  jumpForce: 10
-  jumpBoost: 8
+  jumpForce: 11
+  jumpBoost: 400
   numberOfJumps: 1
-  jumpNumber: 0
   battery:
     max: 200
     level: 200
@@ -234,8 +233,6 @@ MonoBehaviour:
     movingDrain: .100000001
     jumpingDrain: 2
     specialDrain: 4
-  grounded: 0
-  selfColliderCount: 0
 --- !u!212 &21230930
 SpriteRenderer:
   m_ObjectHideFlags: 1
