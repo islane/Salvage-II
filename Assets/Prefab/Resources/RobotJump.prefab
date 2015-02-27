@@ -23,13 +23,13 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 463104}
+  - 114: {fileID: 11463106}
   - 212: {fileID: 21263106}
   - 50: {fileID: 5063106}
   - 60: {fileID: 6063104}
-  - 114: {fileID: 11463106}
+  - 60: {fileID: 6063106}
   - 95: {fileID: 9563106}
   - 82: {fileID: 8263106}
-  - 60: {fileID: 6063106}
   m_Layer: 0
   m_Name: RobotJump
   m_TagString: Untagged

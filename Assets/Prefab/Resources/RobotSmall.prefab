@@ -38,13 +38,13 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 430934}
+  - 114: {fileID: 11430930}
   - 212: {fileID: 21230930}
   - 50: {fileID: 5030930}
   - 60: {fileID: 6030932}
-  - 114: {fileID: 11430930}
+  - 60: {fileID: 6030930}
   - 95: {fileID: 9530930}
   - 82: {fileID: 8230930}
-  - 60: {fileID: 6030930}
   m_Layer: 0
   m_Name: RobotSmall
   m_TagString: Untagged

@@ -12,6 +12,7 @@ public class Robot : Entity
 	public float numberOfJumps;
 	int jumpNumber;
 	int jumpTime;
+	protected bool facingRight;
 
 	protected float animationSpeed = 1;
 
@@ -136,9 +137,15 @@ public class Robot : Entity
 		//rotate sprite to face direction
 		Vector2 scale = transform.localScale;
 		if (axis > 0)
+		{
 			scale.x = 1;
+			facingRight = true;
+		}
 		if (axis < 0)
+		{
 			scale.x = -1;
+			facingRight = false;
+		}
 		transform.localScale = scale;
 
 	}
