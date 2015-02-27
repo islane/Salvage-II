@@ -150,7 +150,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1533799045}
-        m_MethodName: OnClickMenu
+        m_MethodName: OnClick2Continue
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -467,8 +467,8 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 116.5, y: 234.5}
-  m_SizeDelta: {x: 233, y: 469}
+  m_AnchoredPosition: {x: 164, y: 367.5}
+  m_SizeDelta: {x: 328, y: 735}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1042777855
 MonoBehaviour:

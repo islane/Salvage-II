@@ -17,6 +17,9 @@ public class LevelManager : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
+
+		//GameManager.Instance.lastLoadedLevel = Application.loadedLevelName;
+		PlayerPrefs.SetString("LastLoadedLevel", Application.loadedLevelName);
 		
 		if (currentRobot == null)
 			Debug.Log ("Please assign a starting robot to the GameManager in the inspector.");

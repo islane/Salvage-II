@@ -29,11 +29,12 @@ public class MenuManager : MonoBehaviour {
 	}
 
 	public void OnClick2Continue () {
-        Application.LoadLevel("Level001");
+		Application.LoadLevel(PlayerPrefs.GetString("LastLoadedLevel"));
 	}
-
+	
 	// Use this for initialization
 	void Start () {
+
 		//CursorMode cursorMode = CursorMode.Auto;
 		//Vector2 hotSpot = Vector2.zero;
         //Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
