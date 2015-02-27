@@ -221,10 +221,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61c75734df1e20040974b4eee46e1c21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement: 35
-  maxSpeed: 6
+  walkingSpeed: 6
+  walkingAcceleration: 35
   jumpForce: 16
-  jumpBoost: 417
+  jumpBoost: 7
   numberOfJumps: 2
   battery:
     max: 200

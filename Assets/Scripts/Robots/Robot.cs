@@ -5,8 +5,8 @@ using System;
 
 public class Robot : Entity 
 {
-	public float movement;
-	public float maxSpeed;
+	public float walkingSpeed;
+	public float walkingAcceleration;
 	public float jumpForce;
 	public float jumpBoost;
 	public float numberOfJumps;
@@ -90,7 +90,7 @@ public class Robot : Entity
 				//Only apply force if the bot is in the upward part of the jump
 				if (rigidbody2D.velocity.y > 0)
 				{
-					rigidbody2D.AddForce(new Vector2(0.0f, jumpBoost * Time.deltaTime));
+					movementVector += new Vector2(0.0f, jumpBoost);
 				}
 			
 			}
@@ -106,7 +106,7 @@ public class Robot : Entity
 		}
 		
 	}
-	
+
 	virtual public void Move(float axis)
 	{
 		//If player is inputting movement
@@ -114,9 +114,8 @@ public class Robot : Entity
 		{
 			//Add force 
 			//if(grounded)
-				rigidbody2D.AddForce(new Vector2(movement * axis, 0.0f));
+			movementVector += new Vector2(walkingAcceleration * axis, 0.0f);
 			//else
-			//	rigidbody2D.AddForce(new Vector2((movement * axis) * 0.5f, 0.0f));
 
 			//Drain battery;
 			DrainBattery (battery.movingDrain);
@@ -128,7 +127,7 @@ public class Robot : Entity
 
 		//Clamp at max speed
 		Vector2 v = rigidbody2D.velocity;
-		v.x = Mathf.Clamp(v.x, -maxSpeed, maxSpeed);
+		v.x = Mathf.Clamp(v.x, -walkingSpeed, walkingSpeed);
 		rigidbody2D.velocity = v;
 
 		//Set animation parameter based on the velosity
@@ -146,7 +145,6 @@ public class Robot : Entity
 
 	virtual public void Jump(float force)
 	{
-		//rigidbody2D.AddForce(new Vector2(0.0f, force));
 		rigidbody2D.velocity = new Vector2(0.0f, force);
 		audio.Play ();
 		DrainBattery (battery.jumpingDrain);
@@ -155,7 +153,6 @@ public class Robot : Entity
 	}
 	virtual public void Jump(Vector2 vector)
 	{
-		//rigidbody2D.AddForce(vector);
 		rigidbody2D.velocity = vector;
 		audio.Play ();
 		DrainBattery (battery.jumpingDrain);
