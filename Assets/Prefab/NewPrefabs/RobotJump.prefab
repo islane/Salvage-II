@@ -38,13 +38,13 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 433318}
+  - 114: {fileID: 11485334}
   - 212: {fileID: 21233314}
   - 50: {fileID: 5033314}
   - 60: {fileID: 6033314}
-  - 114: {fileID: 11485334}
+  - 60: {fileID: 6034930}
   - 95: {fileID: 9533314}
   - 82: {fileID: 8233314}
-  - 60: {fileID: 6034930}
   m_Layer: 0
   m_Name: RobotJump
   m_TagString: Untagged
@@ -59,7 +59,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 133314}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.552999973, y: -.953000009, z: 0}
+  m_LocalPosition: {x: -10.0600004, y: -15.5699997, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 433318}
@@ -71,7 +71,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 133316}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .565999985, y: -.953000009, z: 0}
+  m_LocalPosition: {x: 10.1300001, y: -15.5699997, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 433318}
@@ -83,7 +83,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 133318}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -23.8099995, y: 3.28999996, z: 0}
+  m_LocalPosition: {x: 128, y: -208, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 433316}
@@ -116,11 +116,11 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_Poly:
     m_Paths:
-    - - {x: .627691269, y: -.139060259}
-      - {x: -.556194305, y: -.134261847}
-      - {x: -.683982372, y: -.873369277}
-      - {x: .0215358734, y: -.950281978}
-      - {x: .687452793, y: -.878355443}
+    - - {x: 7.42868423, y: -4.55051613}
+      - {x: -7.03551817, y: -4.54571724}
+      - {x: -10.0583239, y: -14.9808331}
+      - {x: .894637108, y: -15.5172749}
+      - {x: 10.0617924, y: -15.0777264}
 --- !u!60 &6034930
 PolygonCollider2D:
   m_ObjectHideFlags: 1
@@ -132,11 +132,11 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_Poly:
     m_Paths:
-    - - {x: .503427505, y: -.142060995}
-      - {x: .809185028, y: .301589966}
-      - {x: .00894737244, y: .688079119}
-      - {x: -.742984772, y: .297309637}
-      - {x: -.380437851, y: -.14717412}
+    - - {x: 9.2230835, y: -12.9563751}
+      - {x: 12.9423904, y: 4.63809967}
+      - {x: .652284622, y: 11.1193314}
+      - {x: -12.9036732, y: 4.63059998}
+      - {x: -9.10170555, y: -13.1309509}
 --- !u!82 &8233314
 AudioSource:
   m_ObjectHideFlags: 1
@@ -146,7 +146,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: baf9f4485f1e20e4c9cb3d4ad581f0f7, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -221,10 +221,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61c75734df1e20040974b4eee46e1c21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement: 35
-  maxSpeed: 6
-  jumpForce: 15
-  jumpBoost: 8
+  walkingSpeed: 6
+  walkingAcceleration: 35
+  jumpForce: 16
+  jumpBoost: 7
   numberOfJumps: 2
   battery:
     max: 200

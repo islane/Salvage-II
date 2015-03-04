@@ -14,7 +14,7 @@ public class Robot : Entity
 	int jumpTime;
 	protected bool facingRight;
 
-	protected float animationSpeed = 1;
+	public float animationSpeed = 1;
 
 	//public static Robot SelectedRobot;
 
