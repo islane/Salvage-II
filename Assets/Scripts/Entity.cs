@@ -7,10 +7,17 @@ public class Entity : MonoBehaviour {
 
 	protected Vector2 movementVector;
 
+	protected new Rigidbody2D rigidbody2D;
+
+	protected new AudioSource audio;
+
 	// Use this for initialization
 	protected virtual void Start () {
 		levelManager = GameObject.Find("LevelManager").GetComponent<LevelManager>();
 
+		rigidbody2D = GetComponent<Rigidbody2D>();
+
+		audio = GetComponent<AudioSource>();
 	}
 	
 	void FixedUpdate()

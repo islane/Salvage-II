@@ -31,9 +31,8 @@ class CustomTiledImporterSpawnPrefab : Tiled2Unity.ICustomTiledImporter
 			//Robots use the center of the sprite as their origin, so they have to be offest
 			if(spawnInstance.GetComponent<Robot>())
 			{
-				//float rWidth = spawnInstance.renderer.bounds.size.x / 2;
-				float rWidth = 16; //Change this as soon as I know how to access it from the exported data...
-				float rHeight = spawnInstance.renderer.bounds.size.y / 2;
+				float rWidth = 1;//16; //Change this as soon as I know how to access it from the exported data...
+				float rHeight = 1;//spawnInstance.GetComponent<Renderer>().bounds.size.y / 2;
 				spawnInstance.transform.position += new Vector3(rWidth, rHeight, 0.0f);
 			}
 

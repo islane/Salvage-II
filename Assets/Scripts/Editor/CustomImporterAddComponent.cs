@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 [Tiled2Unity.CustomTiledImporter]
 class CustomImporterAddComponent : Tiled2Unity.ICustomTiledImporter
@@ -11,7 +12,8 @@ class CustomImporterAddComponent : Tiled2Unity.ICustomTiledImporter
 		// Simply add a component to our GameObject
 		if (props.ContainsKey("AddComponent"))
 		{
-			gameObject.AddComponent(props["AddComponent"]);
+			//UnityEngineInternal.APIUpdaterRuntimeServices.AddComponent(gameObject, "Assets/Scripts/Editor/CustomImporterAddComponent.cs (14,4)", props["AddComponent"]);
+			gameObject.AddComponent (Type.GetType (props["AddComponent"]));
 		}
 	}
 	
