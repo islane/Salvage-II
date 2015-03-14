@@ -38,11 +38,11 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 402046}
+  - 114: {fileID: 11466672}
   - 212: {fileID: 21227010}
   - 50: {fileID: 5000032}
   - 58: {fileID: 5819580}
   - 82: {fileID: 8231448}
-  - 114: {fileID: 11466672}
   m_Layer: 0
   m_Name: RollRobot
   m_TagString: Untagged
@@ -198,11 +198,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkingSpeed: 6
   walkingAcceleration: 35
-  jumpForce: 16
+  jumpForce: 10
   jumpBoost: 7
   numberOfJumps: 0
   jumpNumber: 0
   jumpTime: 0
+  facingRight: 0
   animationSpeed: 1
   battery:
     max: 200

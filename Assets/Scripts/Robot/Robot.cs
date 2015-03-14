@@ -12,7 +12,7 @@ public class Robot : Entity
 	public float numberOfJumps;
 	public int jumpNumber;
 	public int jumpTime;
-	protected bool facingRight;
+	public bool facingRight;
 
 	public float animationSpeed = 1;
 
