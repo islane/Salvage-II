@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset name="Area1-Tilemap" tilewidth="16" tileheight="16">
- <image source="../Sprites/Area1/Area1-Tilemap.png" width="192" height="192"/>
+<tileset name="Area001-Tilemap" tilewidth="16" tileheight="16">
+ <image source="Area001-Tilemap.png" width="192" height="192"/>
  <terraintypes>
   <terrain name="Solid" tile="13"/>
   <terrain name="Empty" tile="19"/>
