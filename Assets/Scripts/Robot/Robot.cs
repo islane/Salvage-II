@@ -97,7 +97,8 @@ public class Robot : Entity
 			}
 
 			//Animation parameter
-			animator.SetBool ("Jumping", Convert.ToBoolean (jumpNumber));
+			if(animator != null)
+				animator.SetBool ("Jumping", Convert.ToBoolean (jumpNumber));
 
 
 			Move (Input.GetAxis("Horizontal"));
@@ -121,10 +122,14 @@ public class Robot : Entity
 			//Drain battery;
 			DrainBattery (battery.movingDrain);
 
-			animator.SetBool ("Moving", true);
+			if(animator != null)
+				animator.SetBool ("Moving", true);
 		}
 		else
-			animator.SetBool ("Moving", false);
+		{
+			if(animator != null)
+				animator.SetBool ("Moving", false);
+		}
 
 		//Clamp at max speed
 		Vector2 v = rigidbody2D.velocity;
@@ -132,7 +137,8 @@ public class Robot : Entity
 		rigidbody2D.velocity = v;
 
 		//Set animation parameter based on the velosity
-		animator.SetFloat ("Speed", rigidbody2D.velocity.magnitude * animationSpeed); // / maxSpeed
+		if(animator != null)
+			animator.SetFloat ("Speed", rigidbody2D.velocity.magnitude * animationSpeed); // / maxSpeed
 
 		//rotate sprite to face direction
 		Vector2 scale = transform.localScale;

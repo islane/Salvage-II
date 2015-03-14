@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <!--Tiled2Unity generated xml data-->
 <!--Do not modify by hand-->
-<!--Last exported: 3/14/2015 3:44:12 PM-->
+<!--Last exported: 3/14/2015 5:55:53 PM-->
 <Tiled2Unity version="0.9.9.2">
   <AssignMaterial mesh="mesh_[00]_[00]" material="Area001-Tileset" sortingLayerName="Background" sortingOrder="0" />
   <AssignMaterial mesh="mesh_[01]_[00]" material="Area001-Tileset" sortingLayerName="Midground" sortingOrder="1" />
@@ -34,7 +34,7 @@
         <Property name="spawn" value="WakeRobot" />
       </GameObject>
       <GameObject name="TileObject" x="18" y="-12" rotation="0">
-        <Property name="spawn" value="Gate" />
+        <Property name="spawn" value="Crate" />
       </GameObject>
       <GameObject name="TileObject" x="39" y="-22" rotation="0">
         <Property name="spawn" value="Gate" />
@@ -43,7 +43,7 @@
         <Property name="spawn" value="Gate" />
       </GameObject>
       <GameObject name="TileObject" x="42" y="-27" rotation="0">
-        <Property name="spawn" value="Switch" />
+        <Property name="spawn" value="GateSwitch" />
       </GameObject>
     </GameObject>
   </Prefab>

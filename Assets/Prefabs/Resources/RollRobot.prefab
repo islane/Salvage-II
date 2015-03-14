@@ -43,7 +43,6 @@ GameObject:
   - 58: {fileID: 5819580}
   - 82: {fileID: 8231448}
   - 114: {fileID: 11466672}
-  - 95: {fileID: 9537896}
   m_Layer: 0
   m_Name: RollRobot
   m_TagString: Untagged
@@ -186,23 +185,6 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
---- !u!95 &9537896
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 197648}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11466672
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -224,7 +206,7 @@ MonoBehaviour:
   animationSpeed: 1
   battery:
     max: 200
-    level: 0
+    level: 200
     standingDrain: 0
     movingDrain: .00999999978
     jumpingDrain: 2
