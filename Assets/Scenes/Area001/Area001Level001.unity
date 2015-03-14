@@ -133,6 +133,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7366a1700bb80264cb02c1329addd710, type: 2}
   m_IsPrefabParent: 0
+<<<<<<< HEAD
 --- !u!1001 &527414504
 Prefab:
   m_ObjectHideFlags: 0
@@ -197,6 +198,8 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 527414504}
   m_Script: {fileID: 11500000, guid: 01ee0437df9420c4ca868b007d467712, type: 3}
+=======
+>>>>>>> 8b6462f2124e3b4cab7d2b654566896c982db5f9
 --- !u!1001 &902739751
 Prefab:
   m_ObjectHideFlags: 0
@@ -255,6 +258,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a4cf6241dcf083640a0a694bc2a4b8ce, type: 2}
   m_IsPrefabParent: 0
+<<<<<<< HEAD
 --- !u!1 &1217023841
 GameObject:
   m_PrefabParentObject: {fileID: 143740, guid: 63c294562c64530498c69a847312fb66, type: 2}
@@ -301,6 +305,64 @@ BoxCollider2D:
   m_Offset: {x: .5, y: .5}
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
+=======
+--- !u!1001 &1670096978
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 472034, guid: 63c294562c64530498c69a847312fb66, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 472034, guid: 63c294562c64530498c69a847312fb66, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 472034, guid: 63c294562c64530498c69a847312fb66, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 472034, guid: 63c294562c64530498c69a847312fb66, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 472034, guid: 63c294562c64530498c69a847312fb66, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 472034, guid: 63c294562c64530498c69a847312fb66, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 472034, guid: 63c294562c64530498c69a847312fb66, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 472034, guid: 63c294562c64530498c69a847312fb66, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11424360, guid: 63c294562c64530498c69a847312fb66, type: 2}
+      propertyPath: battery.level
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 5043422, guid: 63c294562c64530498c69a847312fb66, type: 2}
+      propertyPath: m_FixedAngle
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 63c294562c64530498c69a847312fb66, type: 2}
+  m_IsPrefabParent: 0
+--- !u!114 &1977722835
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11424360, guid: 63c294562c64530498c69a847312fb66,
+    type: 2}
+  m_PrefabInternal: {fileID: 1670096978}
+  m_Script: {fileID: 11500000, guid: 01ee0437df9420c4ca868b007d467712, type: 3}
+>>>>>>> 8b6462f2124e3b4cab7d2b654566896c982db5f9
 --- !u!1001 &1997383805
 Prefab:
   m_ObjectHideFlags: 0
