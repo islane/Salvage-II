@@ -133,6 +133,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7366a1700bb80264cb02c1329addd710, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &537866979
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11464970, guid: 63c294562c64530498c69a847312fb66,
+    type: 2}
+  m_PrefabInternal: {fileID: 1055043935}
+  m_Script: {fileID: 11500000, guid: 90d6dbec1e31c44428d9acc6e520d47e, type: 3}
 --- !u!1001 &902739751
 Prefab:
   m_ObjectHideFlags: 0
@@ -198,7 +204,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 11415496, guid: 63c294562c64530498c69a847312fb66, type: 2}
+    - target: {fileID: 0}
+      propertyPath: gatesToTrigger.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11428322, guid: 63c294562c64530498c69a847312fb66, type: 2}
       propertyPath: gatesToTrigger.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -234,18 +244,30 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 11415496, guid: 63c294562c64530498c69a847312fb66, type: 2}
+    - target: {fileID: 0}
       propertyPath: gatesToTrigger.Array.data[0]
       value: 
-      objectReference: {fileID: 1492989462}
-    - target: {fileID: 11415496, guid: 63c294562c64530498c69a847312fb66, type: 2}
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: gatesToTrigger.Array.data[1]
       value: 
-      objectReference: {fileID: 1083180540}
+      objectReference: {fileID: 0}
     - target: {fileID: 11476672, guid: 63c294562c64530498c69a847312fb66, type: 2}
       propertyPath: robotToWake
       value: 
       objectReference: {fileID: 1834358811}
+    - target: {fileID: 9536754, guid: 63c294562c64530498c69a847312fb66, type: 2}
+      propertyPath: m_UpdateMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11428322, guid: 63c294562c64530498c69a847312fb66, type: 2}
+      propertyPath: gatesToTrigger.Array.data[0]
+      value: 
+      objectReference: {fileID: 537866979}
+    - target: {fileID: 11428322, guid: 63c294562c64530498c69a847312fb66, type: 2}
+      propertyPath: gatesToTrigger.Array.data[1]
+      value: 
+      objectReference: {fileID: 1624989123}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 63c294562c64530498c69a847312fb66, type: 2}
   m_IsPrefabParent: 0
@@ -255,15 +277,9 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1055043935}
   m_Script: {fileID: 11500000, guid: 7c364f3d25425214aaa879d555dfe1b5, type: 3}
---- !u!114 &1083180540
+--- !u!114 &1624989123
 MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11458226, guid: 63c294562c64530498c69a847312fb66,
-    type: 2}
-  m_PrefabInternal: {fileID: 1055043935}
-  m_Script: {fileID: 11500000, guid: 90d6dbec1e31c44428d9acc6e520d47e, type: 3}
---- !u!114 &1492989462
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11463202, guid: 63c294562c64530498c69a847312fb66,
+  m_PrefabParentObject: {fileID: 11414182, guid: 63c294562c64530498c69a847312fb66,
     type: 2}
   m_PrefabInternal: {fileID: 1055043935}
   m_Script: {fileID: 11500000, guid: 90d6dbec1e31c44428d9acc6e520d47e, type: 3}

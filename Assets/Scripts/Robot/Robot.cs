@@ -12,6 +12,7 @@ public class Robot : Entity
 	public float numberOfJumps;
 	public int jumpNumber;
 	public int jumpTime;
+	public bool isFalling;
 	public bool facingRight;
 
 	public float animationSpeed = 1;
@@ -96,64 +97,69 @@ public class Robot : Entity
 			
 			}
 
-			//Animation parameter
-			if(animator != null)
-				animator.SetBool ("Jumping", Convert.ToBoolean (jumpNumber));
+			//Falling
+			isFalling = false;
+			if (!grounded && jumpNumber == 0)
+				isFalling = true;
 
+			//Left and Right Movement
+			float axis = Input.GetAxis("Horizontal");
 
-			Move (Input.GetAxis("Horizontal"));
+			if(axis != 0)
+			{
+				Move (axis);
+
+				//rotate sprite to face direction
+				if (axis < 0 && !facingRight || axis > 0 && facingRight)
+					Turn ();
+				
+			}
 			
+			// Set animation parameters
+			if(animator != null)
+			{
+				animator.SetBool("Falling", isFalling);
+				animator.SetBool ("Jumping", Convert.ToBoolean (jumpNumber));
+				animator.SetBool ("Moving", Convert.ToBoolean (axis));
+				animator.SetFloat ("Speed", rigidbody2D.velocity.magnitude * animationSpeed);
+			}
+
 			DrainBattery (battery.standingDrain);
 
 		}
+
+		if(animator != null)
+			animator.SetBool("Active", isControlledCharacter);
+
 		
 	}
 
 	virtual public void Move(float axis)
 	{
-		//If player is inputting movement
-		if(axis != 0)
+		if (rigidbody2D.velocity.x < walkingSpeed && rigidbody2D.velocity.x > -walkingSpeed)
 		{
-			//Add force 
-			//if(grounded)
 			movementVector += new Vector2(walkingAcceleration * axis, 0.0f);
-			//else
-
-			//Drain battery;
-			DrainBattery (battery.movingDrain);
-
-			if(animator != null)
-				animator.SetBool ("Moving", true);
 		}
 		else
 		{
-			if(animator != null)
-				animator.SetBool ("Moving", false);
+			Vector2 v = rigidbody2D.velocity;
+			v.x = Mathf.Clamp(v.x, -walkingSpeed, walkingSpeed);
+			rigidbody2D.velocity = v;
+
 		}
+		
+		DrainBattery (battery.movingDrain);
+	}
 
-		//Clamp at max speed
-		Vector2 v = rigidbody2D.velocity;
-		v.x = Mathf.Clamp(v.x, -walkingSpeed, walkingSpeed);
-		rigidbody2D.velocity = v;
+	virtual public void Turn()
+	{
+		facingRight = !facingRight;
 
-		//Set animation parameter based on the velosity
-		if(animator != null)
-			animator.SetFloat ("Speed", rigidbody2D.velocity.magnitude * animationSpeed); // / maxSpeed
-
-		//rotate sprite to face direction
 		Vector2 scale = transform.localScale;
-		if (axis > 0)
-		{
-			scale.x = 1;
-			facingRight = true;
-		}
-		if (axis < 0)
-		{
-			scale.x = -1;
-			facingRight = false;
-		}
-		transform.localScale = scale;
 
+		scale.x = -scale.x;
+
+		transform.localScale = scale;
 	}
 
 	virtual public void Jump(float force)

@@ -34,7 +34,8 @@ public class LevelManager : MonoBehaviour {
 		robotList = new List<Robot>();
 		robotList.Add (currentRobot);
 		robotIndex = 0;
-		
+
+		currentRobot.isActivated = true;
 	}
 	
 	// Update is called once per frame
