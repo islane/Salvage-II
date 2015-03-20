@@ -5,7 +5,7 @@ public class Entity : MonoBehaviour {
 
 	protected LevelManager levelManager;
 
-	protected Vector2 movementVector;
+	//protected Vector2 movementVector;
 
 	protected new Rigidbody2D rigidbody2D;
 
@@ -16,14 +16,17 @@ public class Entity : MonoBehaviour {
 		levelManager = GameObject.Find("LevelManager").GetComponent<LevelManager>();
 
 		rigidbody2D = GetComponent<Rigidbody2D>();
+		if(rigidbody2D == null)
+			rigidbody2D = transform.GetComponentInChildren<Rigidbody2D>();
 
 		audio = GetComponent<AudioSource>();
 	}
 	
-	void FixedUpdate()
+	protected virtual void FixedUpdate()
 	{
-		rigidbody2D.AddForce (movementVector);
-		movementVector = Vector2.zero;
+		/*rigidbody2D.AddForce (movementVector);
+
+		movementVector = Vector2.zero;*/
 	}
 
 	// Update is called once per frame

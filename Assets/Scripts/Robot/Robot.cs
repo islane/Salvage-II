@@ -2,37 +2,54 @@ using UnityEngine;
 using System.Collections;
 using System;
 
-
-public class Robot : Entity 
+public interface ITarget
 {
+	int targetID{get;set;}
+	void Trigger();
+}
+
+public interface ITrigger
+{
+	int triggerID{get;set;}
+}
+
+public class Robot : Entity, ITarget
+{
+	[Header("These modify the robot's behaviour")]
 	public float walkingSpeed;
 	public float walkingAcceleration;
 	public float jumpForce;
 	public float jumpBoost;
 	public float numberOfJumps;
+	public bool facingRight = true;
+
+	public RobotBattery battery;
+
+	[TooltipAttribute("Adjust this based on each robot's sprite. The red line should be just below the floor collider")]
+	public float groundCheckHeight;
+	[TooltipAttribute("Adjust this to the width of the robot. The red line should be just wider than the floor collider")]
+	public float groundCheckWidth;
+
+	[Header("Only for debugging purposes")]
 	public int jumpNumber;
 	public int jumpTime;
 	public bool isFalling;
-	public bool facingRight;
+	public bool grounded = false;
 
 	public float animationSpeed = 1;
 
-	//public static Robot SelectedRobot;
-
-	public RobotBattery battery;
 
 	public bool isActivated = false;
 	public bool isControlledCharacter = false;
 
-	protected Transform groundCheckA;
-	protected Transform groundCheckB;
-	public bool grounded = false;
-	public int selfColliderCount;
 
 	protected Animator animator;
 	protected int batteryDrain;
+	protected Vector2 movementVector;
 
-
+	public int targetID {get;set;}
+	
+	//public static Robot SelectedRobot;
 
 	// Use this for initialization
 	protected override void Start () 
@@ -41,9 +58,11 @@ public class Robot : Entity
 
 		animator = gameObject.GetComponent<Animator>();
 
-		groundCheckA = transform.Find ("GroundCheckA").transform;
-		groundCheckB = transform.Find ("GroundCheckB").transform;
-		selfColliderCount = Physics2D.LinecastAll(transform.position , groundCheckA.position).Length;
+		if (!facingRight)
+		{
+			Turn ();
+			facingRight = false;
+		}
 	}
 	
 	// Update is called once per frame
@@ -57,6 +76,7 @@ public class Robot : Entity
 			//Check to see if the robot is on the ground (or some other collider)
 			grounded = TestForGround();
 
+			//if the robot is on the ground, reset the jump counter
 			if(grounded && Time.frameCount - jumpTime > 2)
 			{
 				jumpNumber = 0;
@@ -93,6 +113,7 @@ public class Robot : Entity
 				if (rigidbody2D.velocity.y > 0)
 				{
 					movementVector += new Vector2(0.0f, jumpBoost);
+
 				}
 			
 			}
@@ -103,24 +124,24 @@ public class Robot : Entity
 				isFalling = true;
 
 			//Left and Right Movement
-			float axis = Input.GetAxis("Horizontal");
+			float horizontalInput = Input.GetAxis ("Horizontal");
 
-			if(axis != 0)
+			if(horizontalInput != 0)
 			{
-				Move (axis);
-
+				Move (horizontalInput);
+				
 				//rotate sprite to face direction
-				if (axis < 0 && !facingRight || axis > 0 && facingRight)
+				if (horizontalInput > 0 && !facingRight || horizontalInput < 0 && facingRight)
 					Turn ();
 				
 			}
-			
+
 			// Set animation parameters
 			if(animator != null)
 			{
 				animator.SetBool("Falling", isFalling);
 				animator.SetBool ("Jumping", Convert.ToBoolean (jumpNumber));
-				animator.SetBool ("Moving", Convert.ToBoolean (axis));
+				animator.SetBool ("Moving", Convert.ToBoolean (horizontalInput));
 				animator.SetFloat ("Speed", rigidbody2D.velocity.magnitude * animationSpeed);
 			}
 
@@ -134,20 +155,29 @@ public class Robot : Entity
 		
 	}
 
+	//Forces should be applied in FixedUpdate, so we store the forces in a vector and add it here
+	protected override void FixedUpdate()
+	{
+		rigidbody2D.AddForce (movementVector);
+		
+		movementVector = Vector2.zero;
+	}
+
 	virtual public void Move(float axis)
 	{
-		if (rigidbody2D.velocity.x < walkingSpeed && rigidbody2D.velocity.x > -walkingSpeed)
-		{
+		//MovementVector force will be added during the next FixedUpdate, to play nice with the physics engine
+		if(axis > 0 && rigidbody2D.velocity.x < walkingSpeed ||
+		   axis < 0 && rigidbody2D.velocity.x > -walkingSpeed)
 			movementVector += new Vector2(walkingAcceleration * axis, 0.0f);
-		}
-		else
+
+		//Limit the robot's speed
+		/*if (rigidbody2D.velocity.x > walkingSpeed || rigidbody2D.velocity.x < -walkingSpeed)
 		{
 			Vector2 v = rigidbody2D.velocity;
 			v.x = Mathf.Clamp(v.x, -walkingSpeed, walkingSpeed);
 			rigidbody2D.velocity = v;
+		}*/
 
-		}
-		
 		DrainBattery (battery.movingDrain);
 	}
 
@@ -156,15 +186,13 @@ public class Robot : Entity
 		facingRight = !facingRight;
 
 		Vector2 scale = transform.localScale;
-
 		scale.x = -scale.x;
-
 		transform.localScale = scale;
 	}
 
 	virtual public void Jump(float force)
 	{
-		rigidbody2D.velocity = new Vector2(0.0f, force);
+		rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, force);
 		audio.Play ();
 		DrainBattery (battery.jumpingDrain);
 		jumpNumber++;
@@ -182,14 +210,18 @@ public class Robot : Entity
 	virtual public bool TestForGround()
 	{
 		// Test each bottom corner
-		RaycastHit2D[] g1 = Physics2D.LinecastAll(transform.position , groundCheckA.position);
-		RaycastHit2D[] g2 = Physics2D.LinecastAll(transform.position , groundCheckB.position);
+		//RaycastHit2D[] g1 = Physics2D.LinecastAll(transform.position , transform.position + groundCheck1);
+		//RaycastHit2D[] g2 = Physics2D.LinecastAll(transform.position , transform.position + groundCheck2);
 
 		//If either corner is touching the ground, then the robot is standing
-		return (g1.Length > selfColliderCount || g2.Length > selfColliderCount) ? true : false;
+		//return (g1.Length > 0 || g2.Length > 0) ? true : false;
+
+		RaycastHit2D[] g = Physics2D.LinecastAll(new Vector3(transform.position.x - groundCheckWidth, transform.position.y - groundCheckHeight), 
+		                                         new Vector3(transform.position.x + groundCheckWidth, transform.position.y - groundCheckHeight));
+		return(g.Length > 0) ? true : false;
 		
 	}
-	
+
 	virtual public void DrainBattery(float amount)
 	{
 		battery.Drain (amount);
@@ -212,6 +244,7 @@ public class Robot : Entity
 
 	virtual public void Death()
 	{
+		//TODO: this should play the battery drained animation, deactivate the robot, and switch to the next active robot.
 		Application.LoadLevel ("GameOver");
 	}
 
@@ -225,4 +258,16 @@ public class Robot : Entity
 		return(isControlledCharacter);
 	}
 
+	public void Trigger()
+	{
+		Activate(true);
+	}
+	//[ExecuteInEditMode]
+	public void OnDrawGizmos()
+	{
+		Gizmos.color = Color.red;
+		Gizmos.DrawLine(new Vector3(transform.position.x - groundCheckWidth, transform.position.y - groundCheckHeight), 
+		                new Vector3(transform.position.x + groundCheckWidth, transform.position.y - groundCheckHeight));
+	}
 }
+

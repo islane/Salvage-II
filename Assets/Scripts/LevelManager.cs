@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 
 public class LevelManager : MonoBehaviour {
-	
+
 	//Assign this in the inspector to tell GameManager which robot to start the level with.
 	public Robot currentRobot;
 	
@@ -14,7 +14,9 @@ public class LevelManager : MonoBehaviour {
 	int robotIndex;
 	// Key = name of the button used to switch to a robot, Value = robotIndex
 	static Dictionary<string,int> RobotKeys;
-	
+
+	static List<ITarget> targetList;
+
 	// Use this for initialization
 	void Start () {
 

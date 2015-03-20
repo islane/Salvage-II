@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <!--Tiled2Unity generated xml data-->
 <!--Do not modify by hand-->
-<!--Last exported: 3/19/2015 9:09:32 PM-->
+<!--Last exported: 3/20/2015 4:17:32 PM-->
 <Tiled2Unity version="0.9.9.2">
   <AssignMaterial mesh="mesh_[00]_[00]" material="Area001-Tileset" sortingLayerName="Background" sortingOrder="0" />
   <AssignMaterial mesh="mesh_[01]_[00]" material="Area001-Tileset" sortingLayerName="Midground" sortingOrder="1" />
@@ -37,12 +37,15 @@
         <Property name="spawn" value="Crate" />
       </GameObject>
       <GameObject name="TileObject" x="39" y="-22" rotation="0">
+        <Property name="Target" value="1" />
         <Property name="spawn" value="Gate" />
       </GameObject>
       <GameObject name="TileObject" x="39" y="-23" rotation="0">
+        <Property name="Target" value="1" />
         <Property name="spawn" value="Gate" />
       </GameObject>
       <GameObject name="TileObject" x="42" y="-27" rotation="0">
+        <Property name="Trigger" value="1" />
         <Property name="spawn" value="GateSwitch" />
       </GameObject>
     </GameObject>

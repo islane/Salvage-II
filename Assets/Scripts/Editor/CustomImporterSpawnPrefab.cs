@@ -36,6 +36,16 @@ class CustomTiledImporterSpawnPrefab : Tiled2Unity.ICustomTiledImporter
 				spawnInstance.transform.position += new Vector3(rWidth, rHeight, 0.0f);
 			}
 
+			//
+			if(props.ContainsKey ("Target"))
+			{
+				Debug.Log ("Target" + props["Target"]);
+			}
+
+			if(props.ContainsKey ("Trigger"))
+			{
+				Debug.Log ("Trigger" + props["Trigger"]);
+			}
 		}
 		GameObject.DestroyImmediate (gameObject);
 
