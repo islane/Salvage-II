@@ -22,13 +22,14 @@ public class Robot : Entity, ITarget
 	public float jumpBoost;
 	public float numberOfJumps;
 	public bool facingRight = true;
-
-	public RobotBattery battery;
+	public bool onPlatform = false;
 
 	[TooltipAttribute("Adjust this based on each robot's sprite. The red line should be just below the floor collider")]
 	public float groundCheckHeight;
 	[TooltipAttribute("Adjust this to the width of the robot. The red line should be just wider than the floor collider")]
 	public float groundCheckWidth;
+
+	public RobotBattery battery;
 
 	[Header("Only for debugging purposes")]
 	public int jumpNumber;
@@ -48,7 +49,8 @@ public class Robot : Entity, ITarget
 	protected Vector2 movementVector;
 
 	public int targetID {get;set;}
-	
+
+	public Transform parentObjectTransform;
 	//public static Robot SelectedRobot;
 
 	// Use this for initialization
@@ -63,6 +65,8 @@ public class Robot : Entity, ITarget
 			Turn ();
 			facingRight = false;
 		}
+
+		parentObjectTransform = gameObject.transform.parent;
 	}
 	
 	// Update is called once per frame
@@ -224,9 +228,17 @@ public class Robot : Entity, ITarget
 		//If either corner is touching the ground, then the robot is standing
 		//return (g1.Length > 0 || g2.Length > 0) ? true : false;
 
-		RaycastHit2D[] g = Physics2D.LinecastAll(new Vector3(transform.position.x - groundCheckWidth, transform.position.y - groundCheckHeight), 
-		                                         new Vector3(transform.position.x + groundCheckWidth, transform.position.y - groundCheckHeight));
-		return(g.Length > 0) ? true : false;
+		RaycastHit2D g = Physics2D.Linecast(new Vector3(transform.position.x - groundCheckWidth, transform.position.y - groundCheckHeight), 
+		                                      new Vector3(transform.position.x + groundCheckWidth, transform.position.y - groundCheckHeight));
+
+		transform.SetParent (parentObjectTransform);
+		if(g.collider && g.collider.CompareTag ("Platform"))
+		{
+			transform.SetParent (g.collider.transform);
+		}
+
+
+		return(g.collider != null) ? true : false;
 		
 	}
 

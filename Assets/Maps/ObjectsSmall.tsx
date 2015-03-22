@@ -26,4 +26,9 @@
    <property name="spawn" value="WakeRobot"/>
   </properties>
  </tile>
+ <tile id="5">
+  <properties>
+   <property name="spawn" value="Gate"/>
+  </properties>
+ </tile>
 </tileset>
