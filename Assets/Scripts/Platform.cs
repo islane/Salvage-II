@@ -49,25 +49,40 @@ public class Platform : MonoBehaviour {
 
 
 	protected void PlatformUpdate() {
-		// Vertical check - needs more testing, fix for negative values...
-//		if (myTransform.position.y >= maxHeight) {
-//			myTransform.position = new Vector3(myTransform.position.x, maxHeight, myTransform.position.z);
-//			velocity = new Vector3(0.0f, -1 * vertSpeed, 0.0f);
-//		} else if (myTransform.position.y <= minHeight) {
-//			myTransform.position = new Vector3(myTransform.position.x, minHeight, myTransform.position.z);
-//			velocity = new Vector3(0.0f, vertSpeed, 0.0f);
-//		}
 
-		//Horizontal check
-		if (myTransform.position.x >= rightDir) {
-			myTransform.position = new Vector3(rightDir, myTransform.position.y, myTransform.position.z);
-			velocity = new Vector3(-1 * horzSpeed, 0.0f, 0.0f);
-		} else if (myTransform.position.x <= leftDir) {
-			myTransform.position = new Vector3(leftDir, myTransform.position.y, myTransform.position.z);
-			velocity = new Vector3(horzSpeed, 0.0f, 0.0f);
+			if (leftDir == 0 && rightDir == 0) {
+				// check for vertical only
+
+				if (myTransform.localPosition.y >= maxHeight) {
+					myTransform.localPosition = new Vector3(myTransform.localPosition.x, maxHeight, myTransform.localPosition.z);
+					velocity = new Vector3(0.0f, -1 * vertSpeed, 0.0f);
+				} else if (myTransform.localPosition.y <= minHeight) {
+					myTransform.localPosition = new Vector3(myTransform.localPosition.x, minHeight, myTransform.localPosition.z);
+					velocity = new Vector3(0.0f, vertSpeed, 0.0f);
+				}
+
+			} else if (maxHeight == 0 && minHeight == 0) {
+				//check for horizontal only
+				if (myTransform.localPosition.x >= rightDir) {
+					myTransform.localPosition = new Vector3 (rightDir, myTransform.localPosition.y, myTransform.localPosition.z);
+					velocity = new Vector3 (-1 * horzSpeed, 0.0f, 0.0f);
+				} else if (myTransform.localPosition.x <= leftDir) {
+					myTransform.localPosition = new Vector3 (leftDir, myTransform.localPosition.y, myTransform.localPosition.z);
+					velocity = new Vector3 (horzSpeed, 0.0f, 0.0f);
+				}
+			
+			} else {
+				// check both horizontal and vertical
+				if (myTransform.localPosition.x >= rightDir) {
+					myTransform.localPosition = new Vector3 (rightDir, maxHeight, myTransform.localPosition.z);
+					velocity = new Vector3 (-1 * horzSpeed, -1 * vertSpeed, 0.0f);
+				} else if (myTransform.localPosition.x <= leftDir) {
+					myTransform.localPosition = new Vector3 (leftDir, minHeight, myTransform.localPosition.z);
+					velocity = new Vector3 (horzSpeed, vertSpeed, 0.0f);
+				}
+			}
+
 		}
-	}
-
 
 
 }
