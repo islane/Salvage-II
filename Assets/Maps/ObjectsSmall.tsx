@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tileset name="ObjectsSmall" tilewidth="16" tileheight="16">
- <image source="LevelTilesets/ObjectsSmall.png" width="192" height="192"/>
+ <image source="Tilesets/ObjectsSmall.png" width="192" height="192"/>
  <tile id="0">
   <properties>
-   <property name="spawn" value="Switch"/>
+   <property name="spawn" value="GateSwitch"/>
   </properties>
  </tile>
  <tile id="1">
@@ -13,7 +13,7 @@
  </tile>
  <tile id="2">
   <properties>
-   <property name="spawn" value="Gate"/>
+   <property name="spawn" value="Crate"/>
   </properties>
  </tile>
  <tile id="3">
