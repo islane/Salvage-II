@@ -147,6 +147,14 @@ public class Robot : Entity, ITarget
 
 			DrainBattery (battery.standingDrain);
 
+			//If the robot gets stuck on a corner, then give it a little boost
+			if (!grounded && rigidbody2D.velocity.magnitude == 0)
+			{
+				Debug.Log ("Stuck");
+				Vector3 v = transform.position;
+				v.y += 0.2f;
+				transform.position = v;
+			}
 		}
 
 		if(animator != null)
@@ -262,7 +270,7 @@ public class Robot : Entity, ITarget
 	{
 		Activate(true);
 	}
-	//[ExecuteInEditMode]
+
 	public void OnDrawGizmos()
 	{
 		Gizmos.color = Color.red;

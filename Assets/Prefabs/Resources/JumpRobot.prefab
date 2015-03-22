@@ -62,7 +62,9 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Points:
     m_Paths:
-    - - {x: .00614070892, y: .67138958}
+    - - {x: .312870026, y: .685853004}
+      - {x: .0423974991, y: .495826721}
+      - {x: -.243400574, y: .683763504}
       - {x: -.754598618, y: .344517708}
       - {x: -.623605728, y: -.836532593}
       - {x: .626887321, y: -.832638741}
@@ -183,7 +185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkingSpeed: 6
   walkingAcceleration: 35
-  jumpForce: 16
+  jumpForce: 16.6000004
   jumpBoost: 7
   numberOfJumps: 2
   facingRight: 1
@@ -195,7 +197,7 @@ MonoBehaviour:
     jumpingDrain: 2
     specialDrain: 4
   groundCheckHeight: .949999988
-  groundCheckWidth: .639999986
+  groundCheckWidth: .629999995
   jumpNumber: 0
   jumpTime: 0
   isFalling: 0

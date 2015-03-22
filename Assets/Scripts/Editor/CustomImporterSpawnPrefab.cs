@@ -46,8 +46,10 @@ class CustomTiledImporterSpawnPrefab : Tiled2Unity.ICustomTiledImporter
 			{
 				Debug.Log ("Trigger" + props["Trigger"]);
 			}
+
 		}
 		GameObject.DestroyImmediate (gameObject);
+
 
 	}
 	
