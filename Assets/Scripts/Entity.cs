@@ -16,8 +16,8 @@ public class Entity : MonoBehaviour {
 		levelManager = GameObject.Find("LevelManager").GetComponent<LevelManager>();
 
 		rigidbody2D = GetComponent<Rigidbody2D>();
-		if(rigidbody2D == null)
-			rigidbody2D = transform.GetComponentInChildren<Rigidbody2D>();
+		//if(rigidbody2D == null)
+		//	rigidbody2D = transform.GetComponentInChildren<Rigidbody2D>();
 
 		audio = GetComponent<AudioSource>();
 	}

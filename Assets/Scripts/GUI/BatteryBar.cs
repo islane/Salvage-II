@@ -10,6 +10,8 @@ public class BatteryBar : MonoBehaviour {
 	public Image visualLevel;
 	public CanvasGroup canvasGroup;
 
+	public ControllerRobot robot;
+
 
 	private float cachedY;
 	private float minXValue;
@@ -43,16 +45,17 @@ public class BatteryBar : MonoBehaviour {
 		minXValue = batteryTransform.position.x - batteryTransform.rect.width;
 		//Debug.Log ("Minx value: "+minXValue);
 
-		levelManager = GameObject.Find("LevelManager").GetComponent<LevelManager>();
+		//levelManager = GameObject.Find("LevelManager").GetComponent<LevelManager>();
 		//maxBattery = gameManager.currentRobot.battery.max;
 		//CurrentBattery = maxBattery;
 
+		robot = FindObjectOfType<ControllerRobot>();
 	}
 	// Update is called once per frame
 	void Update () {
 
 		//Hide the display if no robot is selected
-		if(levelManager.currentRobot == null)
+		if(robot == null)
 		{
 			canvasGroup.alpha = 0.0f;
 			return;
@@ -61,7 +64,7 @@ public class BatteryBar : MonoBehaviour {
 			canvasGroup.alpha = 1.0f;
 
 		//Get the battery of the current robot
-		RobotBattery battery = levelManager.currentRobot.battery;
+		BatteryModule battery = robot.GetBattery ();
 
 		//incase the current robot has changed
 		maxBattery = battery.max;

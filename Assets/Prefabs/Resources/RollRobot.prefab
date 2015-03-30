@@ -146,6 +146,9 @@ MonoBehaviour:
   jumpBoost: 7
   numberOfJumps: 0
   facingRight: 0
+  onPlatform: 0
+  groundCheckHeight: .449999988
+  groundCheckWidth: .200000003
   battery:
     max: 200
     level: 200
@@ -153,15 +156,14 @@ MonoBehaviour:
     movingDrain: .00999999978
     jumpingDrain: 2
     specialDrain: 4
-  groundCheckHeight: .449999988
-  groundCheckWidth: .200000003
   jumpNumber: 0
   jumpTime: 0
   isFalling: 0
   grounded: 0
   animationSpeed: 1
-  isActivated: 0
-  isControlledCharacter: 0
+  isActivated: 1
+  isControlledCharacter: 1
+  parentObjectTransform: {fileID: 0}
 --- !u!212 &21227010
 SpriteRenderer:
   m_ObjectHideFlags: 1
