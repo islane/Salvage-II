@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BatteryModule : BaseModule {
+public class BatteryComponent : BaseComponent {
 
 	// Use this for initialization
 	void Start () {

@@ -2,7 +2,7 @@
 using System;
 using System.Collections;
 
-public class MovementModule : BaseModule {
+public class MovementComponent : BaseComponent {
 
 	[Header("These modify the robot's behaviour")]
 	public float walkingSpeed;

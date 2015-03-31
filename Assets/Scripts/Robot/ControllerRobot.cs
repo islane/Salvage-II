@@ -75,10 +75,10 @@ public class ControllerRobot : MonoBehaviour {
 
 	}
 
-	public BatteryModule GetBattery()
+	public BatteryComponent GetBattery()
 	{
-		IModule m = modulesStack.Peek().components[batteryIndex];
-		BatteryModule b = m as BatteryModule;
+		IComponent m = modulesStack.Peek().components[batteryIndex];
+		BatteryComponent b = m as BatteryComponent;
 		return(b);
 	}
 

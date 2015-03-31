@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BoostModule : BaseModule {
+public class BoostComponent : BaseComponent {
 
 	public float jumpBoost;
 

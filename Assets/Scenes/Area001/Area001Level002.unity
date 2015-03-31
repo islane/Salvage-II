@@ -121,15 +121,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 376077435}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afcb72b4243d8d94894c46ae29e0beb8, type: 3}
+  m_Script: {fileID: 11500000, guid: 64098e2070f48f64ea183127139ce5dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  max: 200
-  level: 200
-  standingDrain: 0
-  movingDrain: .00999999978
-  jumpingDrain: 2
-  specialDrain: 4
+  type: 0
+  walkingSpeed: 6
+  walkingAcceleration: 35
+  facingRight: 1
+  animationSpeed: 1
 --- !u!114 &376077446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,6 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95d5ce14cfe7b36468518f5ac088d56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   jumpBoost: 7
 --- !u!114 &376077447
 MonoBehaviour:
@@ -150,9 +150,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 376077435}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddf4b961db5a6ed4ba90abade9712d40, type: 3}
+  m_Script: {fileID: 11500000, guid: 063e797ac3da4ff42ab89b2d88f0f20c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   jumpForce: 16.6000004
   numberOfJumps: 2
   groundCheckHeight: .949999988
@@ -171,13 +172,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 376077435}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3772414c9e431f447ad2479c848400a6, type: 3}
+  m_Script: {fileID: 11500000, guid: c2f009a49c5184c459316aae1959014b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkingSpeed: 6
-  walkingAcceleration: 35
-  facingRight: 1
-  animationSpeed: 1
+  type: 0
+  max: 200
+  level: 200
+  standingDrain: 0
+  movingDrain: 0
+  jumpingDrain: 0
+  specialDrain: 0
 --- !u!1 &599419073
 GameObject:
   m_PrefabParentObject: {fileID: 146996, guid: 3a8177ef72b162041844f90b4683344e, type: 2}
@@ -202,9 +206,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 599419073}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3772414c9e431f447ad2479c848400a6, type: 3}
+  m_Script: {fileID: 11500000, guid: 64098e2070f48f64ea183127139ce5dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   walkingSpeed: 7
   walkingAcceleration: 35
   facingRight: 1
@@ -217,9 +222,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 599419073}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddf4b961db5a6ed4ba90abade9712d40, type: 3}
+  m_Script: {fileID: 11500000, guid: 063e797ac3da4ff42ab89b2d88f0f20c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   jumpForce: 10
   numberOfJumps: 1
   groundCheckHeight: .449999988
@@ -241,6 +247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95d5ce14cfe7b36468518f5ac088d56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   jumpBoost: 7
 --- !u!114 &599419084
 MonoBehaviour:
@@ -250,9 +257,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 599419073}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afcb72b4243d8d94894c46ae29e0beb8, type: 3}
+  m_Script: {fileID: 11500000, guid: c2f009a49c5184c459316aae1959014b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   max: 200
   level: 200
   standingDrain: 0
@@ -469,9 +477,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1082608532}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afcb72b4243d8d94894c46ae29e0beb8, type: 3}
+  m_Script: {fileID: 11500000, guid: c2f009a49c5184c459316aae1959014b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   max: 200
   level: 200
   standingDrain: 0
@@ -486,9 +495,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1082608532}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95d5ce14cfe7b36468518f5ac088d56c, type: 3}
+  m_Script: {fileID: 11500000, guid: 8c8c45b46eb9173408f241dd85d8ee8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   jumpBoost: 9
 --- !u!114 &1082608538
 MonoBehaviour:
@@ -498,9 +508,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1082608532}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddf4b961db5a6ed4ba90abade9712d40, type: 3}
+  m_Script: {fileID: 11500000, guid: 063e797ac3da4ff42ab89b2d88f0f20c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   jumpForce: 22
   numberOfJumps: 1
   groundCheckHeight: 1.01999998
@@ -519,9 +530,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1082608532}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3772414c9e431f447ad2479c848400a6, type: 3}
+  m_Script: {fileID: 11500000, guid: 64098e2070f48f64ea183127139ce5dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   walkingSpeed: 6
   walkingAcceleration: 35
   facingRight: 1

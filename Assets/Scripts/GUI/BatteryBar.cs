@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
@@ -64,7 +64,7 @@ public class BatteryBar : MonoBehaviour {
 			canvasGroup.alpha = 1.0f;
 
 		//Get the battery of the current robot
-		BatteryModule battery = robot.GetBattery ();
+		BatteryComponent battery = robot.GetBattery ();
 
 		//incase the current robot has changed
 		maxBattery = battery.max;

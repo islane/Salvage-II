@@ -6,18 +6,18 @@ using System.Collections.Generic;
 //[SerializeField]
 public class Module
 {
-	public List<IModule> components;
+	public List<IComponent> components;
 	public GameObject gameObject;
 	public SpringJoint2D connection;
 	
 	public Module(GameObject go)
 	{
-		components = new List<IModule>();
+		components = new List<IComponent>();
 		
-		components.Add (go.GetComponent<MovementModule>());
-		components.Add (go.GetComponent<JumpModule>());
-		components.Add (go.GetComponent<BoostModule>());
-		components.Add (go.GetComponent<BatteryModule>());
+		components.Add (go.GetComponent<MovementComponent>());
+		components.Add (go.GetComponent<JumpComponent>());
+		components.Add (go.GetComponent<BoostComponent>());
+		components.Add (go.GetComponent<BatteryComponent>());
 		
 		connection = go.GetComponent<SpringJoint2D>();
 		
@@ -25,7 +25,7 @@ public class Module
 	
 	public void EnableModules(bool enable)
 	{
-		foreach(IModule m in components)
+		foreach(IComponent m in components)
 		{
 			if(m != null)
 				m.Enable (enable);

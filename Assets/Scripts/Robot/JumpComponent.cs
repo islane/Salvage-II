@@ -2,7 +2,7 @@
 using System;
 using System.Collections;
 
-public class JumpModule : BaseModule {
+public class JumpComponent : BaseComponent {
 
 	
 	[Header("These modify the robot's behaviour")]

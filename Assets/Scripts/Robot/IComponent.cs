@@ -1,4 +1,4 @@
-﻿public interface IModule
+﻿public interface IComponent
 {
 	int priority{get;set;}
 	
