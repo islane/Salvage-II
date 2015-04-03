@@ -34,9 +34,13 @@ public class MovementComponent : BaseComponent {
 			Move (horizontalInput);
 			
 			//Flip sprite to face direction
-			if (horizontalInput > 0 && !facingRight || horizontalInput < 0 && facingRight)
-				Turn ();
-			
+			//if (horizontalInput > 0 && !facingRight || horizontalInput < 0 && facingRight)
+			//	Turn ();
+
+			if (horizontalInput > 0)
+				TurnRight ();
+			else
+				TurnLeft ();
 		}
 		
 		if(animator != null)
@@ -73,4 +77,20 @@ public class MovementComponent : BaseComponent {
 		transform.localScale = scale;
 	}
 
+	virtual public void TurnRight()
+	{
+		facingRight = true;
+
+		Vector2 scale = transform.localScale;
+		scale.x = 1.0f;
+		transform.localScale = scale;
+	}
+	virtual public void TurnLeft()
+	{
+		facingRight = false;
+		
+		Vector2 scale = transform.localScale;
+		scale.x = -1.0f;
+		transform.localScale = scale;
+	}
 }

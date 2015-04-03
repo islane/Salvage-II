@@ -12,7 +12,6 @@ public class BatteryBar : MonoBehaviour {
 
 	public ControllerRobot robot;
 
-
 	private float cachedY;
 	private float minXValue;
 	private float maxXValue;
@@ -64,7 +63,8 @@ public class BatteryBar : MonoBehaviour {
 			canvasGroup.alpha = 1.0f;
 
 		//Get the battery of the current robot
-		BatteryComponent battery = robot.GetBattery ();
+		//BatteryComponent battery = robot.GetBattery ();
+		BatteryComponent battery = robot.GetTopComponent (typeof(BatteryComponent)) as BatteryComponent;
 
 		//incase the current robot has changed
 		maxBattery = battery.max;

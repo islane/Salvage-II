@@ -11,6 +11,7 @@ public enum ComponentType
 public class BaseComponent: MonoBehaviour, IComponent {
 
 	public int priority {get;set;}
+	public bool isEnabled {get;set;}
 	protected Vector2 movementVector;
 	protected Rigidbody2D rigidbody2D;
 	protected BatteryComponent battery; 
@@ -50,14 +51,18 @@ public class BaseComponent: MonoBehaviour, IComponent {
 	public void Enable()
 	{
 		enabled = true;
+		isEnabled = true;
+
 	}
 	public void Enable(bool enable)
 	{
 		enabled = enable;
+		isEnabled = enable;
 	}
 
 	public void Disable()
 	{
 		enabled = false;
+		isEnabled = false;
 	}
 }

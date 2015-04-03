@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -21,10 +23,11 @@ public class ControllerRobot : MonoBehaviour {
 
 		if(Input.GetKeyDown (KeyCode.T))
 		{
-			GameObject go = FindClosest ("Module");
-			transform.position = go.transform.position;// + go.GetComponent<SpringJoint2D>().anchor;//.transform.FindChild ("SnapA").transform.position;
-			
-			AddModule (go);
+			GameObject go = FindClosest ("Module", 2.0f, modulesStack.Peek ().gameObject);
+			if (go != null)
+			{
+				AddModule (go);
+			}
 
 		}
 
@@ -33,30 +36,34 @@ public class ControllerRobot : MonoBehaviour {
 			RemoveModule ();
 		}
 
-		if(Input.GetKeyDown (KeyCode.Y))
+		/*if(Input.GetKeyDown (KeyCode.Y))
 		{
 			modulesList.components[0].Disable ();
 		}
 		if(Input.GetKeyDown (KeyCode.U))
 		{
 			modulesList.components[0].Enable ();
-		}
+		}*/
 	}
 
 	void AddModule(GameObject go)
 	{
 		Module m = new Module(go);
 
-		m.EnableModules (modulesStack.Peek ());
-
 		if(m != null)
 		{
+			m.EnableModules (modulesStack.Peek ());
 			m.connection.enabled = true;
 			m.connection.connectedBody = gameObject.GetComponent<Rigidbody2D>();
 
+			modulesStack.Peek ().gameObject.transform.SetParent (m.gameObject.transform);
+			modulesStack.Peek ().gameObject.transform.localScale = m.gameObject.transform.localScale;
+			modulesStack.Push (m);
+
+
 		}
 
-		modulesStack.Push (m);
+		Debug.Log (modulesStack.Peek ().gameObject);
 
 
 	}
@@ -73,16 +80,34 @@ public class ControllerRobot : MonoBehaviour {
 
 		modulesStack.Peek().EnableModules (true);
 
+		modulesStack.Peek ().ResetParent ();
 	}
 
 	public BatteryComponent GetBattery()
 	{
-		IComponent m = modulesStack.Peek().components[batteryIndex];
-		BatteryComponent b = m as BatteryComponent;
-		return(b);
+		return(modulesStack.Peek().componentDict[typeof(BatteryComponent)] as BatteryComponent);
 	}
 
-	public GameObject FindClosest(string tag) {
+	public IComponent GetTopComponent(Type cType)
+	{
+		IComponent c = null;
+
+		foreach(Module m in modulesStack.Reverse ())
+		{
+			c = m.componentDict[cType] as IComponent;
+			if (c != null && c.isEnabled)
+				break;
+		}
+
+		return c;
+	}
+
+	public GameObject GetTopModule()
+	{
+		return(modulesStack.Peek ().gameObject);
+	}
+
+	public GameObject FindClosest(string tag, float minDistance, GameObject exception) {
 		GameObject[] gos;
 		gos = GameObject.FindGameObjectsWithTag(tag);
 		GameObject closest = null;
@@ -91,7 +116,7 @@ public class ControllerRobot : MonoBehaviour {
 		foreach (GameObject go in gos) {
 			Vector3 diff = go.transform.position - position;
 			float curDistance = diff.sqrMagnitude;
-			if (curDistance < distance) {
+			if (curDistance < distance && curDistance < minDistance && go != exception) {
 				closest = go;
 				distance = curDistance;
 			}
