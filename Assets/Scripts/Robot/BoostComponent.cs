@@ -11,7 +11,13 @@ public class BoostComponent : BaseComponent {
 	}
 	
 	// Update is called once per frame
-	protected override void Update () {
+	protected override void Update () 
+	{
+		base.Update ();
+	}
+
+	protected override void UpdateOnEnabled()
+	{
 		
 		//If the player continues to hold the jump button, then they jump a little higher
 		if(Input.GetButton ("Jump"))

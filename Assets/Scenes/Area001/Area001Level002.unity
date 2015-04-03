@@ -119,7 +119,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 376077435}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 64098e2070f48f64ea183127139ce5dc, type: 3}
   m_Name: 
@@ -128,13 +128,14 @@ MonoBehaviour:
   walkingAcceleration: 35
   facingRight: 1
   animationSpeed: 1
+  horizontalInput: 0
 --- !u!114 &376077446
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 376077435}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 95d5ce14cfe7b36468518f5ac088d56c, type: 3}
   m_Name: 
@@ -146,7 +147,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 376077435}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 063e797ac3da4ff42ab89b2d88f0f20c, type: 3}
   m_Name: 
@@ -167,7 +168,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 376077435}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c2f009a49c5184c459316aae1959014b, type: 3}
   m_Name: 
@@ -193,7 +194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c886b194ee176f84dada222fed4cbfc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  batteryIndex: 3
+  rb: {fileID: 0}
 --- !u!114 &599419081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,6 +210,7 @@ MonoBehaviour:
   walkingAcceleration: 35
   facingRight: 1
   animationSpeed: 1
+  horizontalInput: 0
 --- !u!114 &599419082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,6 +397,7 @@ GameObject:
   - 231: {fileID: 1082608533}
   - 60: {fileID: 1082608543}
   - 82: {fileID: 1082608540}
+  - 95: {fileID: 1082608544}
   m_Layer: 0
   m_Name: LegModule
   m_TagString: Module
@@ -455,7 +458,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1082608532}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c2f009a49c5184c459316aae1959014b, type: 3}
   m_Name: 
@@ -472,7 +475,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1082608532}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8c8c45b46eb9173408f241dd85d8ee8f, type: 3}
   m_Name: 
@@ -484,12 +487,12 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1082608532}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 063e797ac3da4ff42ab89b2d88f0f20c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 22
+  jumpForce: 24
   numberOfJumps: 1
   groundCheckHeight: 1.01999998
   groundCheckWidth: .629999995
@@ -505,15 +508,16 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1082608532}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 64098e2070f48f64ea183127139ce5dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   walkingSpeed: 6
-  walkingAcceleration: 35
+  walkingAcceleration: 60
   facingRight: 1
   animationSpeed: 1
+  horizontalInput: 0
 --- !u!82 &1082608540
 AudioSource:
   m_ObjectHideFlags: 0
@@ -638,6 +642,23 @@ PolygonCollider2D:
       - {x: -.631954193, y: -1.00159836}
       - {x: .631954193, y: -1.0015974}
       - {x: .624128342, y: -.943152428}
+--- !u!95 &1082608544
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1082608532}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b4695153acec8a0439ed243a27e46ad7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1237024800
 GameObject:
   m_ObjectHideFlags: 0

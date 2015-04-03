@@ -8,14 +8,17 @@ using System.Collections.Generic;
 public class ControllerRobot : MonoBehaviour {
 	public Module modulesList;
 	public Stack<Module> modulesStack;
-
-	public int batteryIndex = 3;
+	public Rigidbody2D rb;
 
 	// Use this for initialization
 	void Awake () {
 		modulesStack = new Stack<Module>();
 		Module m = new Module(gameObject);
 		modulesStack.Push (m);
+
+		m.EnableModules (true);
+
+		rb = GetComponent<Rigidbody2D>();
 	}
 	
 	// Update is called once per frame
@@ -23,7 +26,7 @@ public class ControllerRobot : MonoBehaviour {
 
 		if(Input.GetKeyDown (KeyCode.T))
 		{
-			GameObject go = FindClosest ("Module", 2.0f, modulesStack.Peek ().gameObject);
+			GameObject go = FindClosest ("Module", 2.5f, modulesStack.Peek ().gameObject);
 			if (go != null)
 			{
 				AddModule (go);
@@ -44,6 +47,15 @@ public class ControllerRobot : MonoBehaviour {
 		{
 			modulesList.components[0].Enable ();
 		}*/
+
+		//TODO: Quick fix for rolling ball
+		if(modulesStack.Count > 1)
+		{
+			transform.localRotation = new Quaternion();
+			rb.fixedAngle = true;
+		}
+		else
+			rb.fixedAngle = false;
 	}
 
 	void AddModule(GameObject go)

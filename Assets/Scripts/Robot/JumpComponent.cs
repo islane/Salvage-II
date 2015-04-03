@@ -32,7 +32,28 @@ public class JumpComponent : BaseComponent {
 	}
 	
 	// Update is called once per frame
-	protected override void Update () {
+	protected override void Update () 
+	{
+		base.Update ();
+
+		
+		if(animator != null)
+		{
+			if(isEnabled)
+			{
+				animator.SetBool("Falling", isFalling);
+				animator.SetBool ("Jumping", Convert.ToBoolean (jumpNumber));
+			}
+			else
+			{
+				animator.SetBool("Falling", false);
+				animator.SetBool ("Jumping", false);
+			}
+		}
+	}
+	
+	protected override void UpdateOnEnabled()
+	{
 		//Check to see if the robot is on the ground (or some other collider)
 		grounded = TestForGround();
 		
@@ -79,12 +100,7 @@ public class JumpComponent : BaseComponent {
 			v.y += 0.2f;
 			transform.position = v;
 		}
-		
-		if(animator != null)
-		{
-			animator.SetBool("Falling", isFalling);
-			animator.SetBool ("Jumping", Convert.ToBoolean (jumpNumber));
-		}
+
 	}
 
 	virtual public void Jump(float force)

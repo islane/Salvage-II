@@ -9,6 +9,7 @@ public class MovementComponent : BaseComponent {
 	public float walkingAcceleration;
 	public bool facingRight = true;
 	public float animationSpeed = 1;
+	public float horizontalInput;
 
 
 	// Use this for initialization
@@ -24,10 +25,27 @@ public class MovementComponent : BaseComponent {
 	}
 	
 	// Update is called once per frame
-	protected override void Update () {
+	protected override void Update () 
+	{
+		base.Update ();
+
+		
+		if(animator != null)
+		{
+			if(isEnabled)
+				animator.SetBool ("Moving", Convert.ToBoolean (horizontalInput));
+			else
+				animator.SetBool ("Moving", false);
+
+			animator.SetFloat ("Speed", rigidbody2D.velocity.magnitude * animationSpeed);
+		}
+	}
+	
+	protected override void UpdateOnEnabled()
+	{
 		
 		//Left and Right Movement
-		float horizontalInput = Input.GetAxis ("Horizontal");
+		horizontalInput = Input.GetAxis ("Horizontal");
 		
 		if(horizontalInput != 0)
 		{
@@ -42,12 +60,7 @@ public class MovementComponent : BaseComponent {
 			else
 				TurnLeft ();
 		}
-		
-		if(animator != null)
-		{
-			animator.SetBool ("Moving", Convert.ToBoolean (horizontalInput));
-			animator.SetFloat ("Speed", rigidbody2D.velocity.magnitude * animationSpeed);
-		}
+
 	}
 
 	virtual public void Move(float axis)

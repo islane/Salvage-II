@@ -51,7 +51,8 @@ public class BatteryBar : MonoBehaviour {
 		robot = FindObjectOfType<ControllerRobot>();
 	}
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+	{
 
 		//Hide the display if no robot is selected
 		if(robot == null)

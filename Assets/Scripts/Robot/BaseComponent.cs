@@ -29,8 +29,16 @@ public class BaseComponent: MonoBehaviour, IComponent {
 	}
 	
 	// Update is called once per frame
-	protected virtual void Update () {
-	
+	protected virtual void Update () 
+	{
+		if(isEnabled)
+			UpdateOnEnabled ();
+	}
+
+
+	protected virtual void UpdateOnEnabled()
+	{
+
 	}
 
 	
@@ -50,19 +58,19 @@ public class BaseComponent: MonoBehaviour, IComponent {
 
 	public void Enable()
 	{
-		enabled = true;
+		//enabled = true;
 		isEnabled = true;
 
 	}
 	public void Enable(bool enable)
 	{
-		enabled = enable;
+		//enabled = enable;
 		isEnabled = enable;
 	}
 
 	public void Disable()
 	{
-		enabled = false;
+		//enabled = false;
 		isEnabled = false;
 	}
 }
