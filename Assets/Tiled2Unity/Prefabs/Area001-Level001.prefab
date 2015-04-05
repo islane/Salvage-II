@@ -1,5 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+<<<<<<< HEAD
 --- !u!1 &105248
 GameObject:
   m_ObjectHideFlags: 1
@@ -1438,14 +1439,16 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300004, guid: d286421aadf96674b98c7191bc9b0a03, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+=======
+>>>>>>> origin/master
 --- !u!1001 &100100000
 Prefab:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 105658}
+  m_RootGameObject: {fileID: 0}
   m_IsPrefabParent: 1

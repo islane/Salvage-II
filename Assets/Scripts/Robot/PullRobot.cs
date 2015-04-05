@@ -2,34 +2,58 @@ using UnityEngine;
 using System.Collections;
 
 
-public class PullRobot : Robot {
+public class PullRobot : Robot 
+{
 	public float max_dis;
-	private GameObject pullObject;
+	public GameObject pullObject;
+	public bool carryingObject = false;
 
 	// Use this for initialization
-	void Start () {
-		base.Start();
+	void Start () 
+	{
+		base.Start ();
 		pullObject = GameObject.FindGameObjectWithTag ("PullObject");
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+	{
 		base.Update();
 
-		float distance = Vector2.Distance (transform.position, pullObject.transform.position);// Calculate distance between pull object and player object
 
-		if (distance <= max_dis)// If the player is close enough then the robot can pull the object
+	}
+	
+	override public void Turn()
+	{   
+		//Lets the robot turn if its not carrying anything or its stops turn 
+		if (carryingObject == false) 
 		{
-			Debug.Log("You are close enough to pull");
-			if (Input.GetButtonDown ("Special"))
-			{
-				transform.parent = pullObject.transform;
-			}
-		} 
+			base.Turn();
+		}
+	}
+
+	public void Detach()
+	{   //Detach
+		pullObject.transform.parent = null;
+		carryingObject = false;
+	}
+
+	void OnTriggerEnter(Collider other) 
+	{
+		Debug.Log("You can pull");
+		if(Input.GetButtonDown("Special") & carryingObject == false)
+		{	
+			//Stops robot from turning and attachs the pull object to the robot as a child
+			carryingObject = true;
+			Turn ();
+			pullObject.transform.SetParent(transform);
+			pullObject.transform.localScale = new Vector3(1,1,0);
+		}
 		
-		else 
-		{
-			
+		else if(Input.GetButtonDown("Special") & carryingObject == true)
+		{   
+			//Calls detach method
+			Detach();
 		}
 	}
 }
