@@ -60,17 +60,22 @@ public class BaseComponent: MonoBehaviour, IComponent {
 	{
 		//enabled = true;
 		isEnabled = true;
-
+		if(animator != null)
+			animator.SetBool ("Active", true);
 	}
 	public void Enable(bool enable)
 	{
 		//enabled = enable;
 		isEnabled = enable;
+		if(animator != null)
+			animator.SetBool ("Active", enable);
 	}
 
 	public void Disable()
 	{
 		//enabled = false;
 		isEnabled = false;
+		if(animator != null)
+			animator.SetBool ("Active", false);
 	}
 }

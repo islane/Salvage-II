@@ -316,6 +316,22 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 146996, guid: 3a8177ef72b162041844f90b4683344e, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 187764, guid: 3a8177ef72b162041844f90b4683344e, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 21206294, guid: 3a8177ef72b162041844f90b4683344e, type: 2}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 21279326, guid: 3a8177ef72b162041844f90b4683344e, type: 2}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11460658, guid: 3a8177ef72b162041844f90b4683344e, type: 2}
     - {fileID: 11412432, guid: 3a8177ef72b162041844f90b4683344e, type: 2}
@@ -398,7 +414,7 @@ GameObject:
   - 60: {fileID: 1082608543}
   - 82: {fileID: 1082608540}
   - 95: {fileID: 1082608544}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LegModule
   m_TagString: Module
   m_Icon: {fileID: 0}
@@ -414,7 +430,7 @@ SpringJoint2D:
   m_Enabled: 0
   m_CollideConnected: 0
   m_ConnectedRigidBody: {fileID: 0}
-  m_Anchor: {x: 0, y: 0}
+  m_Anchor: {x: .119999997, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_Distance: .00499999989
   m_DampingRatio: 0
@@ -432,7 +448,7 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Points:
     m_Paths:
-    - - {x: .0425567627, y: -.351655006}
+    - - {x: .0425567627, y: -.437232971}
       - {x: -.486753464, y: -.194976807}
       - {x: -.616033554, y: -.942718506}
       - {x: .624775887, y: -.9414711}
@@ -610,7 +626,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2085741303
-  m_SortingOrder: 0
+  m_SortingOrder: 9
   m_Sprite: {fileID: 21300000, guid: 8c984403e476e224aaf22dd908c10776, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &1082608542
@@ -667,7 +683,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1237024801}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SnapA
   m_TagString: Untagged
   m_Icon: {fileID: 0}

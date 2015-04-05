@@ -19,6 +19,13 @@ public class ControllerRobot : MonoBehaviour {
 		m.EnableModules (true);
 
 		rb = GetComponent<Rigidbody2D>();
+
+
+		/*GameObject[] go = GameObject.FindGameObjectsWithTag("Module");
+		foreach (GameObject m in go)
+		{
+			Physics2D.IgnoreCollision (GetComponent<Collider2D>(), m.GetComponent<Collider2D>());
+		}*/
 	}
 	
 	// Update is called once per frame
@@ -119,6 +126,7 @@ public class ControllerRobot : MonoBehaviour {
 		return(modulesStack.Peek ().gameObject);
 	}
 
+	//TODO: This method should probably be moved and cleaned up at some point
 	public GameObject FindClosest(string tag, float minDistance, GameObject exception) {
 		GameObject[] gos;
 		gos = GameObject.FindGameObjectsWithTag(tag);

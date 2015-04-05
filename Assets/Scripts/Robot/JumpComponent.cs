@@ -37,7 +37,7 @@ public class JumpComponent : BaseComponent {
 		base.Update ();
 
 		
-		if(animator != null)
+		/*if(animator != null)
 		{
 			if(isEnabled)
 			{
@@ -49,7 +49,7 @@ public class JumpComponent : BaseComponent {
 				animator.SetBool("Falling", false);
 				animator.SetBool ("Jumping", false);
 			}
-		}
+		}*/
 	}
 	
 	protected override void UpdateOnEnabled()
@@ -101,6 +101,12 @@ public class JumpComponent : BaseComponent {
 			transform.position = v;
 		}
 
+		if(animator != null)
+		{
+			animator.SetBool("Falling", isFalling);
+			animator.SetBool ("Jumping", Convert.ToBoolean (jumpNumber));
+
+		}
 	}
 
 	virtual public void Jump(float force)

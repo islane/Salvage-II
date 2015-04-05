@@ -30,7 +30,7 @@ public class MovementComponent : BaseComponent {
 		base.Update ();
 
 		
-		if(animator != null)
+		/*if(animator != null)
 		{
 			if(isEnabled)
 				animator.SetBool ("Moving", Convert.ToBoolean (horizontalInput));
@@ -38,7 +38,7 @@ public class MovementComponent : BaseComponent {
 				animator.SetBool ("Moving", false);
 
 			animator.SetFloat ("Speed", rigidbody2D.velocity.magnitude * animationSpeed);
-		}
+		}*/
 	}
 	
 	protected override void UpdateOnEnabled()
@@ -61,6 +61,11 @@ public class MovementComponent : BaseComponent {
 				TurnLeft ();
 		}
 
+		if(animator != null)
+		{
+			animator.SetBool ("Moving", Convert.ToBoolean (horizontalInput));
+			animator.SetFloat ("Speed", rigidbody2D.velocity.magnitude * animationSpeed);
+		}
 	}
 
 	virtual public void Move(float axis)
