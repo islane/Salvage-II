@@ -3,6 +3,7 @@ using System.Collections;
 
 public class CameraController : MonoBehaviour {
 
+	GameObject player;
 	LevelManager levelManager;
 
 	public float xSmooth = 2.0f;
@@ -13,18 +14,21 @@ public class CameraController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		levelManager = GameObject.Find("LevelManager").GetComponent<LevelManager>();
+		//TODO:This is only here for old levels
+		GameObject go = GameObject.Find("LevelManager");
+		if (go != null) levelManager = go.GetComponent<LevelManager>();
+
+		player = FindObjectOfType<ControllerRobot>().gameObject;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (levelManager.currentRobot != null)
-		{
-			GameObject currentCharacter = levelManager.currentRobot.gameObject;//GameManager.Instance.currentRobot.gameObject;
-			targetX = Mathf.Lerp(transform.position.x, currentCharacter.transform.position.x, xSmooth * Time.deltaTime);
-			targetY = Mathf.Lerp(transform.position.y, currentCharacter.transform.position.y, ySmooth * Time.deltaTime);
-		}
-		transform.position = new Vector3(targetX, targetY, transform.position.z);
+		//TODO:This is only here for old levels
+		if(levelManager != null) player = levelManager.currentRobot.gameObject;
 
+		targetX = Mathf.Lerp(transform.position.x, player.transform.position.x, xSmooth * Time.deltaTime);
+		targetY = Mathf.Lerp(transform.position.y, player.transform.position.y, ySmooth * Time.deltaTime);
+		
+		transform.position = new Vector3(targetX, targetY, transform.position.z);
 	}
 }

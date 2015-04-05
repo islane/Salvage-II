@@ -30,6 +30,7 @@ public class Robot : Entity, ITarget
 	public float groundCheckWidth;
 
 	public RobotBattery battery;
+	//public Module module;
 
 	[Header("Only for debugging purposes")]
 	public int jumpNumber;
@@ -45,7 +46,6 @@ public class Robot : Entity, ITarget
 
 
 	protected Animator animator;
-	protected int batteryDrain;
 	protected Vector2 movementVector;
 
 	public int targetID {get;set;}
