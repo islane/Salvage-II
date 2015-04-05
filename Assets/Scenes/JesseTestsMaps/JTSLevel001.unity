@@ -129,52 +129,53 @@ Prefab:
     - target: {fileID: 11459454, guid: 7366a1700bb80264cb02c1329addd710, type: 2}
       propertyPath: currentRobot
       value: 
-      objectReference: {fileID: 894698115}
+      objectReference: {fileID: 796910545}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7366a1700bb80264cb02c1329addd710, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &894698106
+--- !u!1 &796910537
 GameObject:
-  m_PrefabParentObject: {fileID: 166488, guid: 63c294562c64530498c69a847312fb66, type: 2}
+  m_PrefabParentObject: {fileID: 106238, guid: 63c294562c64530498c69a847312fb66, type: 2}
   m_PrefabInternal: {fileID: 1670096978}
---- !u!114 &894698115
+--- !u!114 &796910545
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11434400, guid: 63c294562c64530498c69a847312fb66,
+    type: 2}
+  m_PrefabInternal: {fileID: 1670096978}
+  m_Script: {fileID: 11500000, guid: 7c364f3d25425214aaa879d555dfe1b5, type: 3}
+--- !u!114 &796910546
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 894698106}
+  m_GameObject: {fileID: 796910537}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a47c7c16dab5f8f409acdeefb20acec9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkingSpeed: 6
-  walkingAcceleration: 35
-  jumpForce: 16
-  jumpBoost: 7
-  numberOfJumps: 2
-  facingRight: 1
-  onPlatform: 0
-  groundCheckHeight: .949999988
-  groundCheckWidth: .639999986
-  battery:
-    max: 200
-    level: 200
-    standingDrain: 0
-    movingDrain: .00999999978
-    jumpingDrain: 2
-    specialDrain: 4
+  walkingSpeed: 0
+  walkingAcceleration: 0
+  jumpForce: 0
+  jumpBoost: 0
+  numberOfJumps: 0
   jumpNumber: 0
   jumpTime: 0
-  isFalling: 0
-  grounded: 0
+  facingRight: 0
   animationSpeed: 1
+  battery:
+    max: 0
+    level: 0
+    standingDrain: 0
+    movingDrain: 0
+    jumpingDrain: 0
+    specialDrain: 0
   isActivated: 0
   isControlledCharacter: 0
-  parentObjectTransform: {fileID: 0}
+  grounded: 0
+  selfColliderCount: 0
   max_dis: 3
-  pullObject: {fileID: 0}
-  carryingObject: 0
+  robot_current: {fileID: 0}
 --- !u!1001 &902739751
 Prefab:
   m_ObjectHideFlags: 0
@@ -243,7 +244,6 @@ GameObject:
   - 4: {fileID: 1207911142}
   - 212: {fileID: 1207911141}
   - 61: {fileID: 1207911143}
-  - 50: {fileID: 1207911144}
   m_Layer: 0
   m_Name: Objects01_2
   m_TagString: PullObject
@@ -273,8 +273,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 2085741303
-  m_SortingOrder: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300004, guid: f7c58cbda5254974fb8e46d2d2e6ea1a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &1207911142
@@ -302,21 +302,6 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
---- !u!50 &1207911144
-Rigidbody2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1207911140}
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: .0500000007
-  m_GravityScale: 1
-  m_FixedAngle: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
 --- !u!1001 &1670096978
 Prefab:
   m_ObjectHideFlags: 0
@@ -364,32 +349,7 @@ Prefab:
       propertyPath: m_FixedAngle
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 166488, guid: 63c294562c64530498c69a847312fb66, type: 2}
-      propertyPath: m_Name
-      value: PullRobot
-      objectReference: {fileID: 0}
-    - target: {fileID: 457004, guid: 63c294562c64530498c69a847312fb66, type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 173098, guid: 63c294562c64530498c69a847312fb66, type: 2}
-      propertyPath: m_TagString
-      value: Floor
-      objectReference: {fileID: 0}
-    - target: {fileID: 5022454, guid: 63c294562c64530498c69a847312fb66, type: 2}
-      propertyPath: m_Mass
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6034398, guid: 63c294562c64530498c69a847312fb66, type: 2}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6079498, guid: 63c294562c64530498c69a847312fb66, type: 2}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 11477200, guid: 63c294562c64530498c69a847312fb66, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 63c294562c64530498c69a847312fb66, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1997383805
