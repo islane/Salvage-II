@@ -87,12 +87,6 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &191429179
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11414748, guid: 63c294562c64530498c69a847312fb66,
-    type: 2}
-  m_PrefabInternal: {fileID: 210622463}
-  m_Script: {fileID: 11500000, guid: 90d6dbec1e31c44428d9acc6e520d47e, type: 3}
 --- !u!1001 &210622463
 Prefab:
   m_ObjectHideFlags: 0
@@ -143,11 +137,11 @@ Prefab:
     - target: {fileID: 11428322, guid: 63c294562c64530498c69a847312fb66, type: 2}
       propertyPath: gatesToTrigger.Array.data[1]
       value: 
-      objectReference: {fileID: 1240095235}
+      objectReference: {fileID: 0}
     - target: {fileID: 11428322, guid: 63c294562c64530498c69a847312fb66, type: 2}
       propertyPath: gatesToTrigger.Array.data[0]
       value: 
-      objectReference: {fileID: 191429179}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 63c294562c64530498c69a847312fb66, type: 2}
   m_IsPrefabParent: 0
@@ -212,7 +206,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 439024, guid: a4cf6241dcf083640a0a694bc2a4b8ce, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 20
+      value: 19.7900009
       objectReference: {fileID: 0}
     - target: {fileID: 439024, guid: a4cf6241dcf083640a0a694bc2a4b8ce, type: 2}
       propertyPath: m_LocalPosition.y
@@ -261,12 +255,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a4cf6241dcf083640a0a694bc2a4b8ce, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &1240095235
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11435212, guid: 63c294562c64530498c69a847312fb66,
-    type: 2}
-  m_PrefabInternal: {fileID: 210622463}
-  m_Script: {fileID: 11500000, guid: 90d6dbec1e31c44428d9acc6e520d47e, type: 3}
 --- !u!114 &1375830406
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11477200, guid: 63c294562c64530498c69a847312fb66,
