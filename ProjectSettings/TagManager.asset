@@ -45,3 +45,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 947607145
+    locked: 0
+  - name: Midground
+    uniqueID: 3822875907
+    locked: 0
+  - name: Interactions
+    uniqueID: 3127719613
+    locked: 0
+  - name: Foreground
+    uniqueID: 1550476311
+    locked: 0
